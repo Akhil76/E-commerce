@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme)=>({
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'backgroud.paper',
-    border: '1px solid white',
+    border: '1px solid black',
+    borderRadius:"5px",
     boxShadow: 24,
     p: 4,
     background:"white"
@@ -23,6 +24,14 @@ const useStyles = makeStyles((theme)=>({
   
   btn:{
     textTransform:'none'
+  },
+  img:{
+    display: "inline-flex",
+    width:"100px",
+    height:"100px"
+  },
+  form:{
+    padding:"20px"
   }
 
 }))
@@ -33,7 +42,14 @@ export default function Editproducts(props) {
   const dispatch = useDispatch();
 
   const[editedProduct,SetEditedProduct] = useState({
-    ProductName:props.product.ProductName
+    ProductName:props.product.ProductName,
+    Price:props.product.Price,
+    Quantity:props.product.Quantity,
+    Description:props.product.Description,
+    ProductImg:props.product.ProductImg,
+    Catagory:props.product.Catagory,
+    Subcatagory:props.product.Subcatagory,
+    Subcatagory_two:props.product.Subcatagory_two
   });
 
   const changeHandler =(e)=>{
@@ -64,8 +80,8 @@ export default function Editproducts(props) {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box className={classes.root}>
-            <Typography variant="h5">Edit Product</Typography>
-          <form onSubmit={submithandler}>
+            <Typography align="center" variant="h5">Edit Product</Typography>
+          <form className={classes.form} onSubmit={submithandler}>
                 <div>
                     <label>Product Name : </label>
                     <input 
@@ -79,40 +95,44 @@ export default function Editproducts(props) {
                     />
                 </div>
                 <div>
-                    <label>Product Name : </label>
+                    <label>Price: </label>
                     <input 
                     className=""
                     type="text"
-                    placeholder="Product Name"
-                    Name="ProductName"
-                    id="ProductName"
-                    value={editedProduct.ProductName}
+                    placeholder="Price"
+                    Name="Price"
+                    id="Price"
+                    value={editedProduct.Price}
                     onChange={changeHandler}
                     />
                 </div>
                 <div>
-                    <label>Product Name : </label>
+                    <label>Quantity : </label>
                     <input 
                     className=""
                     type="text"
-                    placeholder="Product Name"
-                    Name="ProductName"
-                    id="ProductName"
-                    value={editedProduct.ProductName}
+                    placeholder="Quantity"
+                    Name="Quantity"
+                    id="Quantity"
+                    value={editedProduct.Quantity}
                     onChange={changeHandler}
                     />
                 </div>
                 <div>
-                    <label>Product Name : </label>
-                    <input 
+                    <label>Description : </label>
+                    <textarea 
                     className=""
                     type="text"
-                    placeholder="Product Name"
-                    Name="ProductName"
-                    id="ProductName"
-                    value={editedProduct.ProductName}
+                    placeholder="Description"
+                    Name="Description"
+                    id="Description"
+                    value={editedProduct.Description}
                     onChange={changeHandler}
                     />
+                </div>
+                <div>
+                  <Typography variant="h6">Product Image:</Typography>
+                  <img className={classes.img} alt="ProductImg" src={"../uploads/"+editedProduct.ProductImg}/>
                 </div>
               <Button 
               className={classes.btn} 

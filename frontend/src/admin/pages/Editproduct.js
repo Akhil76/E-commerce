@@ -62,18 +62,18 @@ export default function Editproduct() {
                 <Button 
                 variant="contained" 
                 color="primary"
-				onClick={()=>{handleOpen(product._id)}}
+				        onClick={()=>{handleOpen(product._id)}}
                 >
                   Edit
                 </Button>
-				{id===product._id?
-				<Editproducts
-				open={open}
-				setOpen={setOpen}
-				onClose={handleClose}
-				product={product}
-				/>:null
-				}
+                {id===product._id?
+                <Editproducts
+                open={open}
+                setOpen={setOpen}
+                onClose={handleClose}
+                product={product}
+                />:null
+                }
               </TableCell>
           </TableRow>
         </TableBody>
