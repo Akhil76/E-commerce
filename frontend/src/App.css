@@ -1,0 +1,91 @@
+.client_area{
+  background-color: #EAEDED;
+}
+.client_page{
+  background-color: #EAEDED;
+  min-height:500px;
+}
+
+.my_nav ul{
+  list-style: none;
+  display: inline-flex;
+}
+
+.my_nav ul li{
+  font-weight:inherit;
+  margin-right:5px;
+  width:100px;
+  padding:5px;
+
+}
+
+.my_nav ul li a{
+  text-decoration: none;
+  color:aliceblue;
+}
+.my_nav ul li:hover{
+  background:tomato;
+  border-radius: 3px;
+  
+}
+
+.sub_menu{
+  display: none;
+}
+
+.my_nav ul li:hover .sub_menu{
+  display: block;
+  position: absolute;
+  background: #3f51b5;
+  margin-top: 5px;
+  
+}
+
+.my_nav ul li:hover .sub_menu ul{
+  display: block;
+}
+
+.my_nav ul li:hover .sub_menu ul li{
+  margin:10px;
+  margin-right: 20px;
+  margin-left: -20px;
+  margin-top: 10px;
+}
+
+.sub_menu2{
+  display: none;
+}
+.hover_me:hover .sub_menu2{
+  position: absolute;
+  display: block;
+  margin-top: -35px;
+  margin-left: 100px;
+  background: #3f51b5;
+}
+
+.product_card{
+  background: rgb(76, 78, 72);
+  width:508px;
+  display: inline-block;
+  margin: 1px;
+  padding: 16px;
+  color:white;
+}
+
+
+.admin_t{
+  text-decoration:none;
+  color:black;
+}
+
+.T_area{
+  width: 400px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.imgPreview{
+  display: inline-flex;
+  width:100px;
+  height:100px;
+}
