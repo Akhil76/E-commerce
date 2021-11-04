@@ -6,14 +6,24 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import {Typography,Button} from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
+import {Paper,makeStyles} from '@material-ui/core';
 import { useDispatch,useSelector } from 'react-redux';
 import {editProductDisplay} from '../../statemanager/actions/product';
 import Editproducts from '../components/modals/Editproducts';
 
 
+const useStyles = makeStyles((theme)=>({
+ 
+  btn:{
+    textTransform:'none'
+  },
+
+
+}))
+
 
 export default function Editproduct() {
+  const classes = useStyles();
 	const [open, setOpen] = useState(false);
 	const [id,setId] = useState("");
 	const handleOpen = (id) => {
@@ -36,7 +46,6 @@ export default function Editproduct() {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
             <TableCell>Product Name</TableCell>
             <TableCell align="left">Image</TableCell>
             <TableCell align="left">Price</TableCell>
@@ -48,8 +57,6 @@ export default function Editproduct() {
          products.map(product=>
           <TableBody>
           <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-              <TableCell></TableCell>
-
               <TableCell component="th" scope="row">
                 {product.ProductName}
               </TableCell>
@@ -60,6 +67,7 @@ export default function Editproduct() {
               align="center"
               >
                 <Button 
+                className={classes.btn}
                 variant="contained" 
                 color="primary"
 				        onClick={()=>{handleOpen(product._id)}}

@@ -32,6 +32,7 @@ class Addproduct extends React.Component{
 
         // for image preview------------------
         const file = event.target.files[0];
+        
         const reader = new FileReader();
         reader.onloadend = ()=>{
             this.setState({
@@ -39,7 +40,10 @@ class Addproduct extends React.Component{
                 imgpreview:reader.result
             });
         };
-        reader.readAsDataURL(file);
+        if(file){
+            reader.readAsDataURL(file);
+        }
+        
         //--------------------------------------
     }
     

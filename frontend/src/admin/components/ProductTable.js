@@ -5,16 +5,21 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import {Typography,Button} from '@material-ui/core';
+import {Typography,Button,makeStyles} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { useDispatch,useSelector } from 'react-redux';
 import {editProductDisplay} from '../../statemanager/actions/product';
 
+const useStyles = makeStyles((theme)=>({
+  btn:{
+    textTransform:"none"
+  }
+}))
 
 
 
 export default function ProductTable() {
-
+  const classes = useStyles();
   const dispatch = useDispatch();
   const products = useSelector((state)=>state.products);
   
@@ -28,7 +33,6 @@ export default function ProductTable() {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
             <TableCell>Product Name</TableCell>
             <TableCell align="left">Image</TableCell>
             <TableCell align="left">Price</TableCell>
@@ -40,7 +44,7 @@ export default function ProductTable() {
          products.map(product=>
           <TableBody>
           <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-              <TableCell></TableCell>
+              
 
               <TableCell component="th" scope="row">
                 {product.ProductName}
@@ -52,6 +56,7 @@ export default function ProductTable() {
               align="center"
               >
                 <Button 
+                className={classes.btn}
                 variant="contained" 
                 color="primary"
                 >

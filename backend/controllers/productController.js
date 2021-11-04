@@ -6,25 +6,25 @@ const addProduct = asynchandler(async(req,res)=>{
 
   
    try{
-    //const {ProductName,Description,Quantity,Price}= req.body;
+    const {ProductName,Description,Quantity,Price}= req.body;
 
-   // These three names are different from frontend names
-   const Catagory = req.body.catagoryId;
-   const Subcatagory = req.body.subcatagoryId;
-   const Subcatagory_two = req.body.subcatagorytwoId;
-   //---------------------------------------------------
-   const ProductImg = req.file.filename;
+    // These three names are different from frontend names------
+    const Catagory = req.body.catagoryId;
+    const Subcatagory = req.body.subcatagoryId;
+    const Subcatagory_two = req.body.subcatagorytwoId;
+    //-----For uploading img------------------------------------
+    const ProductImg = req.file.filename;
 
-   const addProduct = new ProductModel({
-        ProductName:req.body.ProductName,
-        Description:req.body.Description,
-        Quantity:req.body.Quantity,
-        Price:req.body.Price,
-        ProductImg,   
-        Catagory,
-        Subcatagory,
-        Subcatagory_two,
-    
+    const addProduct = new ProductModel({
+            ProductName,
+            Description,
+            Quantity,
+            Price,
+            ProductImg,   
+            Catagory,
+            Subcatagory,
+            Subcatagory_two,
+        
    })
        await addProduct.save();
        res.send("Product is inserted.");
@@ -38,6 +38,23 @@ const addProduct = asynchandler(async(req,res)=>{
 
 const editproduct = asynchandler(async(req,res)=>{
     try{
+        //update from frontend-----------------------------------
+        const {ProductName,Description,Quantity,Price,Catagory,Subcatagory,Subcatagory_two} = req.body;
+
+        const updatedProduct ={
+            ProductName,
+            Description,
+            Quantity,
+            Price,
+            Catagory,
+            Subcatagory,
+            Subcatagory_two,
+        };
+        if(req.file){
+            const ProductImg = req.file.filename;
+            updatedProduct.ProductImg = ProductImg;
+        }
+        
         const editedProduct = await ProductModel.findByIdAndUpdate(
             {_id:id},
             {},

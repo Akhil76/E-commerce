@@ -62,7 +62,15 @@ export default function Editproducts(props) {
         e.preventDefault();
         //dispatch(editChildCat(props.Childcategory._id,editedChildCat));
         SetEditedProduct({
-            ProductName:""
+            ProductName:"",
+            Price:"",
+            Quantity:"",
+            Description:"",
+
+            Catagory:"",
+            Subcatagory:"",
+            Subcatagory_two:""
+
         });
         onClose();
         
@@ -131,15 +139,30 @@ export default function Editproducts(props) {
                     />
                 </div>
                 <div>
-                  <Typography variant="h6">Product Image:</Typography>
+                  <label>Change picture </label>
+                  <input
+                  type="file"
+                  />
+                </div>
+                <div>
+                  <Typography paragraph>Product Image:</Typography>
                   <img className={classes.img} alt="ProductImg" src={"../uploads/"+editedProduct.ProductImg}/>
                 </div>
-              <Button 
-              className={classes.btn} 
-              type="submit" 
-              variant="contained" 
-              color="primary"
-              >submit</Button>
+                <div>
+                  <Button 
+                  className={classes.btn} 
+                  type="submit" 
+                  variant="contained" 
+                  color="primary"
+                  >Submit</Button>
+                  <Button
+                  className={classes.btn} 
+                  type="submit" 
+                  variant="contained" 
+                  color="primary"
+                  onClick={onClose}
+                  >Close</Button>
+                </div>
           </form>
         </Box>
       </Modal>
