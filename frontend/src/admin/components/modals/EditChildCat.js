@@ -49,9 +49,9 @@ export default function EditChildCat(props) {
   const submithandler=(e)=>{
         e.preventDefault();
         dispatch(editChildCat(props.Childcategory._id,editedChildCat));
-        SetEditedChildCat({
-            Subcatagory_twoName:""
-        });
+        // SetEditedChildCat({
+        //     Subcatagory_twoName:""
+        // });
         onClose();
         
     }

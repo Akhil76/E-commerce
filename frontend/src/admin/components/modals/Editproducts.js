@@ -47,36 +47,38 @@ export default function Editproducts(props) {
     Price:props.product.Price,
     Quantity:props.product.Quantity,
     Description:props.product.Description,
-    ProductImg:props.product.ProductImg,
+    OldImg:props.product.ProductImg,
     Catagory:props.product.Catagory,
     Subcatagory:props.product.Subcatagory,
     Subcatagory_two:props.product.Subcatagory_two,
+    ProductImg:null
     
   });
   
 
 
-  const onChangeFile = event =>{
-    // console.log(event.target.files[0]);
+//   const onChangeFile = (e) =>{
+//     // console.log(event.target.files[0]);
      
-    setEditedProduct({ProductImg:event.target.files[0]});
+//     setEditedProduct({ProductImg:e.target.files[0]});
 
-     // for image preview------------------
-     const file = event.target.files[0];
+//      // for image preview------------------
+//      const file = e.target.files[0];
      
-     const reader = new FileReader();
-     reader.onloadend = ()=>{
-      setEditedProduct({
-             file:file,
-             imgpreview:reader.result
-         });
-     };
-     if(file){
-         reader.readAsDataURL(file);
-     }
+//      const reader = new FileReader();
+//      reader.onloadend = ()=>{
+//       setEditedProduct({
+//              file:file,
+//              imgpreview:reader.result
+//          });
+//      };
+//      if(file){
+//          reader.readAsDataURL(file);
+//      }
      
-     //--------------------------------------
- }
+//      //--------------------------------------
+//  }
+
   const submithandler=(e)=>{
         e.preventDefault();
         const formdata = new FormData();
@@ -91,16 +93,17 @@ export default function Editproducts(props) {
 
         dispatch(editproduct(props.product._id,formdata));
 
-        setEditedProduct({
-            ProductName:"",
-            Price:"",
-            Quantity:"",
-            Description:"",
-            ProductImg:"",
-            Catagory:"",
-            Subcatagory:"",
-            Subcatagory_two:""
-        });
+        // setEditedProduct({
+        //     ProductName:"",
+        //     Price:"",
+        //     Quantity:"",
+        //     Description:"",
+        //     ProductImg:"",
+        //     Catagory:"",
+        //     Subcatagory:"",
+        //     Subcatagory_two:""
+        // });
+
         onClose();
         
     }
@@ -171,17 +174,17 @@ export default function Editproducts(props) {
                     className=""
                     type="file"
                     name="ProductImg"
-                    onChange={onChangeFile}
+                    onChange={(e)=>setEditedProduct({...editedProduct,ProductImg:e.target.files[0]})}
                     />
                 </div>
                 <div>
                   <Typography paragraph>Product Image:</Typography>
-                  <img className={classes.img} src={"../uploads/"+editedProduct.ProductImg}/>
+                  <img className={classes.img} src={"../uploads/"+editedProduct.OldImg}/>
                   
                 </div>
-                {/* <div>
+                <div>
                   <img className={classes.img} src={editedProduct.imgpreview}/>
-                </div> */}
+                </div>
                 <div>
                   <Button 
                   className={classes.btn} 
@@ -189,13 +192,13 @@ export default function Editproducts(props) {
                   variant="contained" 
                   color="primary"
                   >Submit</Button>
-                  {/* <Button
+                  <Button
                   className={classes.btn} 
-                  type="submit" 
+                  type="button" 
                   variant="contained" 
                   color="primary"
                   onClick={onClose}
-                  >Close</Button> */}
+                  >Close</Button>
                 </div>
           </form>
           <p>Output</p>
@@ -203,6 +206,7 @@ export default function Editproducts(props) {
           <p>{editedProduct.Price}</p>
           <p>{editedProduct.Quantity}</p>
           <p>{editedProduct.Description}</p>
+          <p>{editedProduct.Catagory}</p>
         </Box>
       </Modal>
     </div>

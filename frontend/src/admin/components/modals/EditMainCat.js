@@ -49,9 +49,11 @@ export default function EditMainCat(props) {
   const submithandler=(e)=>{
         e.preventDefault();
         dispatch(editMainCat(props.maincategory._id,editedMainCat));
-        setEditedMainCat({
-            CatagoryName:""
-        });
+
+        // setEditedMainCat({
+        //     CatagoryName:""
+        // });
+
         onClose();
         
     }

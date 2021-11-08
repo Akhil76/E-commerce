@@ -49,9 +49,11 @@ export default function EditSubCat(props) {
   const submithandler=(e)=>{
         e.preventDefault();
         dispatch(editSubCat(props.subcategory._id,editedSubCat));
-        SetEditedSubCat({
-            SubcatagoryName:""
-        });
+
+        // SetEditedSubCat({
+        //     SubcatagoryName:""
+        // });
+
         onClose();
         
     }
