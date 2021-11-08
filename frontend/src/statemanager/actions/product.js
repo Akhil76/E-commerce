@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { ADD_PRODUCT , FETCH_ALL_PRODUCT ,EDIT_PRODUCT_DISPLAY} from '../action_type/constants';
+import { ADD_PRODUCT,
+    EDIT_PRODUCT, 
+    FETCH_ALL_PRODUCT,
+    EDIT_PRODUCT_DISPLAY} from '../action_type/constants';
 
 export const addproduct = (formdata)=>(dispatch)=>{
     axios.post('/admin/addproduct',formdata,{
@@ -19,7 +22,26 @@ export const addproduct = (formdata)=>(dispatch)=>{
         console.log(error)
     })
 };
+//----------Edit Product ------------------------
+export const editproduct = (id,formdata)=>(dispatch)=>{
+    axios.put(`/admin/editproduct/${id}`,formdata,{
+        headers:{
+            "content-type": "application/json" 
+        }
+    })
 
+    .then(response=>{
+        dispatch({
+            type:EDIT_PRODUCT,
+            payload:{
+                formdata:response.data
+            }
+        })
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+};
 //-----------for adminpanel----------------
 export const editProductDisplay = ()=>(dispatch)=>{
     axios.get('/admin/allproducts')

@@ -44,7 +44,8 @@ router.get('/allproducts',allproducts);
 router.post('/addproduct',upload.single('ProductImg'),addProduct);
 //----------Edit products-------------------------------------------
 router.put('/editproduct/:id',upload.single('ProductImg'),editproduct);
-router.post('/adminset', upload.single('Image'),adminprofile);
+//------------------------------------------------------------------
+router.post('/adminset', upload.single('ProductImg'),adminprofile);
 router.post('/login',login);
 
 

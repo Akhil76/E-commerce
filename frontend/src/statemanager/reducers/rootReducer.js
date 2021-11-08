@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import catagoryReducer from "./catagoryReducer";
 import catagorySetting from "./catagorySetting";
 import productsReducer from "./product";
+import editproductReducer from "./editproduct";
 import productFilterReducer from "./productFilter";
 import catagorySelectReducer from "./catagorySelect";
 import subcatagorySelectReducer from "./subcatagorySelect";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     catagory : catagoryReducer,
     catagorySetting:catagorySetting,
     products : productsReducer,
+    editproduct:editproductReducer,
     filteredproducts : productFilterReducer,
     catagorySelect : catagorySelectReducer,
     subcatagorySelect : subcatagorySelectReducer,

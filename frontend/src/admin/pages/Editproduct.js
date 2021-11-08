@@ -38,7 +38,7 @@ export default function Editproduct() {
   
 	useEffect(()=>{
 			dispatch(editProductDisplay());
-		},[]);
+		},[editProductDisplay()]);
 	
   return (
     <TableContainer component={Paper}>

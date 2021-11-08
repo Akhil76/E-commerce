@@ -44,7 +44,7 @@ function AddChildCat(){
     const initialState = {
         childcatagoryName:"",
         catagoryId:"",
-        subcatagoryId:""
+        subcatagoryId:"",
 
     };
 
@@ -60,7 +60,7 @@ function AddChildCat(){
         setNewchildCat({
             childcatagoryName:"",
             catagoryId:"",
-            subcatagoryId:""
+            subcatagoryId:"",
         })
     }
 

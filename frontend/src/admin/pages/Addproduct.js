@@ -15,7 +15,7 @@ class Addproduct extends React.Component{
         Quantity:"",
         Price:"",
         Description:"",
-        ProductImg:null,
+        ProductImg:"",
         imgpreview:"",
     }
   
@@ -72,7 +72,7 @@ class Addproduct extends React.Component{
             Quantity:"",
             Price:"",
             Description:"",
-            ProductImg:null,
+            ProductImg:"",
         });
         
         

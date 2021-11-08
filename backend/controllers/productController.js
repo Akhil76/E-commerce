@@ -4,7 +4,6 @@ const ProductModel = require('../models/ProductModel');
 
 const addProduct = asynchandler(async(req,res)=>{
 
-  
    try{
     const {ProductName,Description,Quantity,Price}= req.body;
 
@@ -29,9 +28,10 @@ const addProduct = asynchandler(async(req,res)=>{
        await addProduct.save();
        res.send("Product is inserted.");
    }catch{
-    res.status(401).json({
-        "error": "Server error occurred!"
+    res.status(200).json({
+        message:"Server error occurred and product adding failed!"
     });
+    
    }
 });
 
@@ -39,6 +39,7 @@ const addProduct = asynchandler(async(req,res)=>{
 const editproduct = asynchandler(async(req,res)=>{
     try{
         //update from frontend-----------------------------------
+        const id = req.params.id;
         const {ProductName,Description,Quantity,Price,Catagory,Subcatagory,Subcatagory_two} = req.body;
 
         const updatedProduct ={
@@ -50,6 +51,7 @@ const editproduct = asynchandler(async(req,res)=>{
             Subcatagory,
             Subcatagory_two,
         };
+        console.log(updatedProduct);
         if(req.file){
             const ProductImg = req.file.filename;
             updatedProduct.ProductImg = ProductImg;
@@ -57,7 +59,7 @@ const editproduct = asynchandler(async(req,res)=>{
         
         const editedProduct = await ProductModel.findByIdAndUpdate(
             {_id:id},
-            {},
+            {$set:updatedProduct},
             {new:true}
         );
         res.json(editedProduct);
