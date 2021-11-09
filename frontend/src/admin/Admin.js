@@ -10,6 +10,7 @@ import { BrowserRouter as Router,Switch } from 'react-router-dom';
 import PrivateRoute from '../privateRoutes/PrivateRoute';
 import AddCategory from './pages/AddCategory';
 import EditCategory from './pages/EditCategory';
+import Deleteproduct from './pages/Deleteproduct';
 import Setting from'./pages/Setting';
 
 
@@ -54,6 +55,7 @@ function Admin() {
           <Switch>
             <PrivateRoute exact path="/admin/addproduct" component={Addproduct}/>
             <PrivateRoute exact path="/admin/editproduct" component={Editproduct}/>
+            <PrivateRoute exact path="/admin/deleteproduct" component={Deleteproduct}/>
             <PrivateRoute exact path="/admin/setting" component={Setting}/>
             <PrivateRoute exact path="/admin/addcategory" component={AddCategory}/>
             <PrivateRoute exact path="/admin/editcategory" component={EditCategory}/>

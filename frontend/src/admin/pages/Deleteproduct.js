@@ -8,8 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import {Typography,Button} from '@material-ui/core';
 import {Paper,makeStyles} from '@material-ui/core';
 import { useDispatch,useSelector } from 'react-redux';
-import {editProductDisplay} from '../../statemanager/actions/product';
-import Editproducts from '../components/modals/Editproducts';
+import {editProductDisplay,delproduct} from '../../statemanager/actions/product';
+
 
 
 const useStyles = makeStyles((theme)=>({
@@ -22,16 +22,9 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 
-export default function Editproduct() {
+export default function Deleteproduct() {
   const classes = useStyles();
-	const [open, setOpen] = useState(false);
-	const [id,setId] = useState("");
-	const handleOpen = (id) => {
-		setId(id);
-		setOpen(true);
-	};
-	const handleClose = () => setOpen(false);
-
+	
 
   	const dispatch = useDispatch();
   	const products = useSelector((state)=>state.products);
@@ -70,19 +63,10 @@ export default function Editproduct() {
                 className={classes.btn}
                 variant="contained" 
                 color="primary"
-				        onClick={()=>{handleOpen(product._id)}}
+				onClick={()=>dispatch(delproduct(product._id))}
                 >
-                  Edit
+                  Delete
                 </Button>
-                {id===product._id?
-                <Editproducts
-                open={open}
-                setOpen={setOpen}
-                onClose={handleClose}
-                product={product}
-                />:null
-                }
-               
               </TableCell>
           </TableRow>
         </TableBody>

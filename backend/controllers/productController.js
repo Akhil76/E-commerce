@@ -35,7 +35,7 @@ const addProduct = asynchandler(async(req,res)=>{
    }
 });
 
-
+// -------Editting products-----------------------------
 const editproduct = asynchandler(async(req,res)=>{
     try{
         //update from frontend-----------------------------------
@@ -70,6 +70,18 @@ const editproduct = asynchandler(async(req,res)=>{
     }
 });
 
+//-----------Deleting product-----------------------------
+const delproduct = asynchandler(async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const deletedProduct = await ProductModel.findByIdAndRemove(id) .exec();
+        res.send('Product is successfully deleted.');
+    }catch{
+        res.status(401).json({
+            "error": "Server error occurred!"
+        }); 
+    }
+})
 //Displaying products------------------------------
 const allproducts = asynchandler(async(req,res)=>{
 
@@ -172,4 +184,4 @@ const productbyChildCat = asynchandler(async(req,res)=>{
     });
 });
 
-module.exports = {addProduct,editproduct,allproducts,productBymainCatagory,productBysubCatagory,productbyChildCat,single_product};
+module.exports = {addProduct,editproduct,delproduct,allproducts,productBymainCatagory,productBysubCatagory,productbyChildCat,single_product};

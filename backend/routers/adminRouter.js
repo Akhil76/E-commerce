@@ -11,7 +11,7 @@ const {addcatagory,
     deleteChildCategory
 } = require('../controllers/catagorycontroller');
 const displaycatagory = require('../controllers/displaycatagory');
-const {addProduct,editproduct,allproducts} = require('../controllers/productController');
+const {addProduct,editproduct,delproduct,allproducts} = require('../controllers/productController');
 const {mainCatagory,subcatagory,subcatagoryTwo} = require('../controllers/catagorySelect');
 const {adminprofile,login} = require('../controllers/adminprofile');
 const upload = require('../middlewares/upload');
@@ -44,6 +44,8 @@ router.get('/allproducts',allproducts);
 router.post('/addproduct',upload.single('ProductImg'),addProduct);
 //----------Edit products-------------------------------------------
 router.put('/editproduct/:id',upload.single('ProductImg'),editproduct);
+//----------Delete products-----------------------------------------
+router.delete('/delproduct/:id',delproduct);
 //------------------------------------------------------------------
 router.post('/adminset', upload.single('ProductImg'),adminprofile);
 router.post('/login',login);

@@ -1,4 +1,4 @@
-import { EDIT_PRODUCT} from "../action_type/constants";
+import { EDIT_PRODUCT,DEL_PRODUCT} from "../action_type/constants";
 
 const initialstate = {
     items:[]
@@ -12,7 +12,14 @@ const editproductReducer = (state=initialstate,action)=>{
               items:state.items.map((e)=>
               e._id===action.payload.id?action.payload:e
               )  
-            } 
+            }
+        case DEL_PRODUCT:
+            return{
+                ...state,
+                items:state.items.map((e)=>
+                e._id===action.payload.id?action.payload:e
+                )
+            }    
         default :
             return state    
     }

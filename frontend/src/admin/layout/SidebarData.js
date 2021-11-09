@@ -23,6 +23,11 @@ export const SidebarDatas = [
         Link : "/admin/editproduct"
     },
     {
+        title: "Delete Product",
+        icon :<AppsIcon/> ,
+        Link : "/admin/deleteproduct"
+    },
+    {
     title: "Settings",
     icon :<SettingsIcon/>,
     Link:"/admin/setting",

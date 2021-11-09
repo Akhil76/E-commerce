@@ -194,7 +194,6 @@ export default function Editproducts(props) {
                   >Submit</Button>
                   <Button
                   className={classes.btn} 
-                  type="button" 
                   variant="contained" 
                   color="primary"
                   onClick={onClose}
