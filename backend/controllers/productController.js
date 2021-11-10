@@ -1,5 +1,6 @@
 const asynchandler = require('express-async-handler');
 const ProductModel = require('../models/ProductModel');
+const fs = require('fs');
 
 
 const addProduct = asynchandler(async(req,res)=>{
@@ -51,7 +52,7 @@ const editproduct = asynchandler(async(req,res)=>{
             Subcatagory,
             Subcatagory_two,
         };
-        console.log(updatedProduct);
+       
         if(req.file){
             const ProductImg = req.file.filename;
             updatedProduct.ProductImg = ProductImg;
@@ -71,10 +72,23 @@ const editproduct = asynchandler(async(req,res)=>{
 });
 
 //-----------Deleting product-----------------------------
+
 const delproduct = asynchandler(async(req,res)=>{
+   
     try{
+        
         const id = req.params.id;
         const deletedProduct = await ProductModel.findByIdAndRemove(id) .exec();
+       
+        //--------Deleting img file------------------
+        const path = '../frontend/public/uploads/';
+        const fileNameWithPath = path+deletedProduct.ProductImg;
+        if(fileNameWithPath){
+            fs.unlink(fileNameWithPath, (err) => {
+                console.log(err);
+              });
+        }
+        //------------------------------------------
         res.send('Product is successfully deleted.');
     }catch{
         res.status(401).json({
