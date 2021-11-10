@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme)=>({
 export default function ProductTable() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const products = useSelector((state)=>state.products);
+  const products = useSelector((state)=>state.products.items);
   
   useEffect(()=>{
 		dispatch(editProductDisplay());

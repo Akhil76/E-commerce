@@ -34,7 +34,7 @@ export default function Editproduct() {
 
 
   	const dispatch = useDispatch();
-  	const products = useSelector((state)=>state.products);
+  	const products = useSelector((state)=>state.products.items);
   
 	useEffect(()=>{
 			dispatch(editProductDisplay());

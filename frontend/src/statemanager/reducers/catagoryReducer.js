@@ -18,7 +18,7 @@ const catagoryReducer = (state=initialstate,action)=>{
             case FETCH_CATAGORY:
                 return{
                     ...state,
-                    items : action.payload.catagory
+                    items: action.payload.catagory
                 }
             case ADD_MAIN_CATAGORY:
                 return{

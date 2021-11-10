@@ -1,17 +1,25 @@
 import { ADD_PRODUCT, FETCH_ALL_PRODUCT,EDIT_PRODUCT_DISPLAY} from "../action_type/constants";
 
-// const initialstate = {
-//     products:[]
-// }
+const initialstate = {
+    items:[]
+}
 
-const productsReducer = (state=[],action)=>{
+const productsReducer = (state=initialstate,action)=>{
     switch (action.type){
         case ADD_PRODUCT:
-            return{...state,addproduct: action.payload} 
+            return{...state,
+                addproduct: action.payload
+            } 
         case FETCH_ALL_PRODUCT:
-            {return action.payload.products}
+            return {
+                ...state,
+                items:action.payload.products
+            }
         case EDIT_PRODUCT_DISPLAY:
-            {return action.payload.products}
+            return {
+                ...state,
+                items:action.payload.products
+            }
         default :
             return state    
     }
