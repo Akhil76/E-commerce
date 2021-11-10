@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { ADD_PRODUCT,
-    EDIT_PRODUCT, 
     FETCH_ALL_PRODUCT,
     EDIT_PRODUCT_DISPLAY,
-    DEL_PRODUCT} from '../action_type/constants';
+    } from '../action_type/constants';
 
 export const addproduct = (formdata)=>(dispatch)=>{
     axios.post('/admin/addproduct',formdata,{
@@ -15,27 +14,7 @@ export const addproduct = (formdata)=>(dispatch)=>{
         dispatch({
             type:ADD_PRODUCT,
             payload: {
-                addproduct: Response.data
-            }
-        })
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-};
-//----------Edit Product ------------------------
-export const editproduct = (id,formdata)=>(dispatch)=>{
-    axios.put(`/admin/editproduct/${id}`,formdata,{
-        headers:{
-            "content-type": "application/json" 
-        }
-    })
-
-    .then(response=>{
-        dispatch({
-            type:EDIT_PRODUCT,
-            payload:{
-                formdata:response.data
+                formdata: Response.data
             }
         })
     })
@@ -44,19 +23,6 @@ export const editproduct = (id,formdata)=>(dispatch)=>{
     })
 };
 
-//-----------Delete Product ---------------------
-export const delproduct = (id)=>(dispatch)=>{
-    axios.delete(`/admin/delproduct/${id}`)
-    .then(response=>{
-        dispatch({
-            type:DEL_PRODUCT,
-            payload:response.data
-        })
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-}
 //-----------for adminpanel----------------
 export const editProductDisplay = ()=>(dispatch)=>{
     axios.get('/admin/allproducts')

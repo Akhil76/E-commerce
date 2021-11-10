@@ -4,7 +4,7 @@ const initialstate = {
     items:[]
 }
 
-const editproductReducer = (state=initialstate,action)=>{
+const editAndDelProduct = (state=initialstate,action)=>{
     switch (action.type){
         case EDIT_PRODUCT:
             return{
@@ -31,4 +31,4 @@ const editproductReducer = (state=initialstate,action)=>{
 
 
 
-export default editproductReducer ;
+export default editAndDelProduct ;

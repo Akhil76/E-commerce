@@ -8,7 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import {Typography,Button} from '@material-ui/core';
 import {Paper,makeStyles} from '@material-ui/core';
 import { useDispatch,useSelector } from 'react-redux';
-import {editProductDisplay,delproduct} from '../../statemanager/actions/product';
+import {editProductDisplay} from '../../statemanager/actions/product';
+import {delproduct} from '../../statemanager/actions/editandDelProduct';
 
 
 
@@ -63,7 +64,7 @@ export default function Deleteproduct() {
                 className={classes.btn}
                 variant="contained" 
                 color="primary"
-				onClick={()=>dispatch(delproduct(product._id))}
+				        onClick={()=>dispatch(delproduct(product._id))}
                 >
                   Delete
                 </Button>

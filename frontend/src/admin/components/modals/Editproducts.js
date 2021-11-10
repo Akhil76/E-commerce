@@ -3,7 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import {editproduct} from '../../../statemanager/actions/product';
+import {editproduct} from '../../../statemanager/actions/editandDelProduct';
 import { useDispatch } from 'react-redux';
 
 
