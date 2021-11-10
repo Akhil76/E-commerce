@@ -86,7 +86,7 @@ export default function Editproduct() {
               </TableCell>
           </TableRow>
         </TableBody>
-        )
+         )
        }
       </Table>
     </TableContainer>

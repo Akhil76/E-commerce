@@ -60,9 +60,17 @@ const editproduct = asynchandler(async(req,res)=>{
         
         const editedProduct = await ProductModel.findByIdAndUpdate(
             {_id:id},
-            {$set:updatedProduct},
-            {new:true}
+            {$set:updatedProduct}
         );
+         //--------replacing img file------------------
+         const path = '../frontend/public/uploads/';
+         const fileNameWithPath = path+editedProduct.ProductImg;
+         if(editedProduct.ProductImg){ //If there is no img file, fs.unlink will not work
+             fs.unlink(fileNameWithPath, (err) => {
+                 console.log(err);
+               });
+         }
+         //------------------------------------------
         res.json(editedProduct);
     }catch{
         res.status(200).json({
@@ -83,7 +91,7 @@ const delproduct = asynchandler(async(req,res)=>{
         //--------Deleting img file------------------
         const path = '../frontend/public/uploads/';
         const fileNameWithPath = path+deletedProduct.ProductImg;
-        if(fileNameWithPath){
+        if(deletedProduct.ProductImg){ //If there is no img file, fs.unlink will not work
             fs.unlink(fileNameWithPath, (err) => {
                 console.log(err);
               });
