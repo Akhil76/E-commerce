@@ -36,7 +36,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "16px"
     },
     icon:{
-      color:"white"
+      color:"white",
+      marginRight:"-20px"
+    },
+    text:{
+      paddingLeft:"0px"
     },
     toolbar: theme.mixins.toolbar,
   }));
@@ -62,9 +66,10 @@ function Sidebar(props){
                 <Link to={val.Link} className={classes.link}>
                   <ListItem button >
                     <ListItemIcon className={classes.icon}>{val.icon}</ListItemIcon>
-                    <ListItemText primary={val.title} />
+                    <ListItemText className={classes.text} primary={val.title} />
                     <ListItemIcon className={classes.icon}>{val.ExpandMoreIcon}</ListItemIcon>
                   </ListItem>
+                  
                 </Link>
               ))}
             </List>

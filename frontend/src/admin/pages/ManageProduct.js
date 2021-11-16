@@ -10,7 +10,7 @@ import {Paper,makeStyles} from '@material-ui/core';
 import { useDispatch,useSelector } from 'react-redux';
 import {editProductDisplay} from '../../statemanager/actions/product';
 import Editproducts from '../components/modals/Editproducts';
-
+import {delproduct} from '../../statemanager/actions/editandDelProduct';
 
 const useStyles = makeStyles((theme)=>({
  
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme)=>({
 }))
 
 
-export default function Editproduct() {
+export default function ManageProduct() {
   const classes = useStyles();
 	const [open, setOpen] = useState(false);
 	const [id,setId] = useState("");
@@ -73,6 +73,14 @@ export default function Editproduct() {
 				        onClick={()=>{handleOpen(product._id)}}
                 >
                   Edit
+                </Button>
+                <Button 
+                className={classes.btn}
+                variant="outlined" 
+                color="primary"
+                onClick={()=>dispatch(delproduct(product._id))}
+                >
+                  Delete
                 </Button>
                 {id===product._id?
                 <Editproducts

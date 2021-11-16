@@ -16,8 +16,11 @@ class Catagory extends React.Component{
             this.props.fetchProductbyCat(this.props.match.params.catId)
         }
     }
+
+    
     render(){
         const {products} = this.props; 
+        console.log(this.props.match.path);
         return(
             <div className="client_page">
                 <Grid direction="row" justifyContent="flex-start" container>
@@ -28,12 +31,11 @@ class Catagory extends React.Component{
                         ProductName={product.ProductName} 
                         Price={product.Price} 
                         Img={product.ProductImg}
-                         
+
                         />
                         )
                     }
                 </Grid>
-                
             </div>
         )
     }

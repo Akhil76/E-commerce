@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme)=>({
 
 }))
   
-function EditCategory(){
+function ManageCat(){
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	const catagories = useSelector((state)=>state.catagorySetting.items);
@@ -203,4 +203,4 @@ function EditCategory(){
 
 
 
-export default EditCategory;
+export default ManageCat;

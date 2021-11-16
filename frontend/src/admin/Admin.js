@@ -5,12 +5,11 @@ import Sidebar from './layout/Sidebar';
 import Navbar from './layout/Navbar';
 import Home from './pages/Home';
 import Addproduct from './pages/Addproduct';
-import Editproduct from './pages/Editproduct';
+import ManageProduct from './pages/ManageProduct';
 import { BrowserRouter as Router,Switch } from 'react-router-dom';
 import PrivateRoute from '../privateRoutes/PrivateRoute';
 import AddCategory from './pages/AddCategory';
-import EditCategory from './pages/EditCategory';
-import Deleteproduct from './pages/Deleteproduct';
+import ManageCat from './pages/ManageCat';
 import Setting from'./pages/Setting';
 
 
@@ -54,11 +53,10 @@ function Admin() {
           <div className={classes.toolbar} />
           <Switch>
             <PrivateRoute exact path="/admin/addproduct" component={Addproduct}/>
-            <PrivateRoute exact path="/admin/editproduct" component={Editproduct}/>
-            <PrivateRoute exact path="/admin/deleteproduct" component={Deleteproduct}/>
+            <PrivateRoute exact path="/admin/manageproduct" component={ManageProduct}/>
             <PrivateRoute exact path="/admin/setting" component={Setting}/>
             <PrivateRoute exact path="/admin/addcategory" component={AddCategory}/>
-            <PrivateRoute exact path="/admin/editcategory" component={EditCategory}/>
+            <PrivateRoute exact path="/admin/managecat" component={ManageCat}/>
             <PrivateRoute exact path="/admin" component={Home}/>
           </Switch>
         </main>
