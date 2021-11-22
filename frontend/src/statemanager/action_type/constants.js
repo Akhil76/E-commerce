@@ -29,3 +29,5 @@ export const DELETE_CHILD_CAT = 'DELETE_CHILD_CAT';
 export const EDIT_PRODUCT_DISPLAY = 'EDIT_PRODUCT_DISPLAY';
 //---Displaying Cart items--------------------------------
 export const CART = 'CART';
+//----Searching products-------
+export const SEARCH = 'SEARCH';

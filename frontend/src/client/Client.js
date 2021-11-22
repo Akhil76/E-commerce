@@ -31,7 +31,7 @@ class Client extends React.Component{
                             <Route exact path='/Subcatagory/:subcatId' component={Subcatagory}/>
                             <Route exact path='/Product/:productId' component={Product}/>
                             <Route exact path='/productdetails/:id' component={ProductDetails}/>
-                            <Route exact path='/searchresult' component={SearchResult}/>
+                            <Route exact path='/searchresult/:productName' component={SearchResult}/>
                             <Route exact path='/signin' component={Signin}/>
                             <Route exact path='/signup' component={Signup}/>
                             <Route exact path='/cart' component={Cart}/>
