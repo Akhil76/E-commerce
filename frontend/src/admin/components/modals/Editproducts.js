@@ -200,12 +200,12 @@ export default function Editproducts(props) {
                   >Close</Button>
                 </div>
           </form>
-          <p>Output</p>
+          {/* <p>Output</p>
           <p>{editedProduct.ProductName}</p>
           <p>{editedProduct.Price}</p>
           <p>{editedProduct.Quantity}</p>
           <p>{editedProduct.Description}</p>
-          <p>{editedProduct.Catagory}</p>
+          <p>{editedProduct.Catagory}</p> */}
         </Box>
       </Modal>
     </div>

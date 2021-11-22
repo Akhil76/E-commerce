@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import ProductDetails from './pages/ProductDetails';
+import SearchResult from './pages/SearchResult';
 import Catagory from './pages/Catagory';
 import Subcatagory from './pages/Subcatagory';
 import Error from './pages/Error';
@@ -30,6 +31,7 @@ class Client extends React.Component{
                             <Route exact path='/Subcatagory/:subcatId' component={Subcatagory}/>
                             <Route exact path='/Product/:productId' component={Product}/>
                             <Route exact path='/productdetails/:id' component={ProductDetails}/>
+                            <Route exact path='/searchresult' component={SearchResult}/>
                             <Route exact path='/signin' component={Signin}/>
                             <Route exact path='/signup' component={Signup}/>
                             <Route exact path='/cart' component={Cart}/>

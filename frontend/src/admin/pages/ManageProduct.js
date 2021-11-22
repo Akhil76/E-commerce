@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import {Typography,Button} from '@material-ui/core';
 import {Paper,makeStyles} from '@material-ui/core';
-import { useDispatch,useSelector } from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import {editProductDisplay} from '../../statemanager/actions/product';
 import Editproducts from '../components/modals/Editproducts';
 import {delproduct} from '../../statemanager/actions/editandDelProduct';

@@ -130,8 +130,10 @@ const deleteMainCategory = asynchandler(async(req,res)=>{
     try{
         const id = req.params.id;
         const MainCat = await CatagoryModel.findByIdAndRemove(id).exec();
-        const SubCat = await SubcatagoryModel.deleteMany(MainCat.Subcatagory).exec();
-        console.log(SubCat._id);
+        const SubCat = await SubcatagoryModel.find({Catagory:id})
+       
+        //const DeletedSubCat = await SubcatagoryModel.findByIdAndRemove({_id:SubCat._id}).exec();
+        console.log(SubCat);
         //await Subcatagory_twoModel.deleteMany({_id:deletedSubCat.Subcatagory_two}).exec();
        
         res.send('Category is successfully deleted.');
@@ -169,7 +171,7 @@ const deleteChildCategory = asynchandler(async(req,res)=>{
     }
 })
 
-module.exports ={
+module.exports = {
     addcatagory,
     addsubcatagory,
     addsubcatagory_two,

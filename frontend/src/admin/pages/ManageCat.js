@@ -23,10 +23,13 @@ const useStyles = makeStyles((theme)=>({
 	
 	mainCat_area:{
 		background:"#b2dfdb",
+		paddingBottom:"5px",
+		
 	},
-	mainCat:{
-		borderBottom:"1px solid white",
-		minHeight: "42px"
+	mainCat:{		
+		minHeight: "42px",
+		borderTop:"3px solid white",
+		
 	},
 	subCat_area:{
 		background:"#bdbdbd",
@@ -34,7 +37,7 @@ const useStyles = makeStyles((theme)=>({
 	},
 	subCat:{
 		minHeight: "42px",
-		borderBottom:"1px solid white",
+		borderTop:"3px solid #b2dfdb",
 	},
 	childCat_area:{
 		background:"#81c784",
@@ -42,7 +45,7 @@ const useStyles = makeStyles((theme)=>({
 	},
 	childCat:{
 		minHeight: "42px",
-		borderBottom:"1px solid white",
+		borderTop:"3px solid #bdbdbd",
 	}
 
 }))

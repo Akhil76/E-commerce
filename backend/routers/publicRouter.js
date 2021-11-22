@@ -3,6 +3,7 @@ const router = express.Router();
 const {allproducts,productBymainCatagory,productBysubCatagory,productbyChildCat,single_product} = require('../controllers/productController');
 const displaycatagory = require('../controllers/displaycatagory');
 const {customer,addToCart,cartItem} = require('../controllers/customer');
+const SearchProduct = require('../controllers/SearchProduct');
 
 
 
@@ -17,6 +18,7 @@ router.get('/subcatagory/:subcatId',productBysubCatagory);
 router.post('/addcustomer',customer);
 router.get('/addtocart',addToCart);
 router.get('/cartitem/:customerid',cartItem);
+router.get('/search/:productName',SearchProduct);
 
 
 module.exports = router;

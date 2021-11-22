@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
         height:"350px",
         background: "white",
         borderRadius:"5px",
-        border:"3px solid #EAEDED"
+        border:"3px solid #EAEDED",
+        overflow: "hidden"
     },
     img:{
         display:"inline-flex",

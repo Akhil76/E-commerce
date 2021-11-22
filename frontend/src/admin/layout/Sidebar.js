@@ -58,7 +58,7 @@ function Sidebar(props){
           <div className={classes.toolbar} />
             <Toolbar>
               <Avatar alt="Remy Sharp" src="#" />
-              <Typography variant="h5"><Link style={{color: "White"}} className="admin_t" to="/admin">Admin</Link></Typography>
+              <Typography variant="h6"><Link style={{color: "White"}} className="admin_t" to="/admin">Admin</Link></Typography>
             </Toolbar>
             <Divider />
             <List>
