@@ -4,7 +4,7 @@ const {allproducts,productBymainCatagory,productBysubCatagory,productbyChildCat,
 const displaycatagory = require('../controllers/displaycatagory');
 const {customer,addToCart,cartItem} = require('../controllers/customer');
 const SearchProduct = require('../controllers/SearchProduct');
-
+const {displayslider} = require('../controllers/ImgSlider');
 
 
 
@@ -19,6 +19,6 @@ router.post('/addcustomer',customer);
 router.get('/addtocart',addToCart);
 router.get('/cartitem/:customerid',cartItem);
 router.get('/search/:productName',SearchProduct);
-
+router.get('/imgslider',displayslider);
 
 module.exports = router;

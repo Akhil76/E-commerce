@@ -10,6 +10,7 @@ import subcattwoSelectReducer from "./subcattwoSelect"
 import authReducer from "./auth";
 import cartItemReducer from "./cart";
 import searchReducer from "./searchReducer";
+import SliderSetting from "./SliderSetting";
 
 
 
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     cart: cartItemReducer,
     SearchedProducts:searchReducer,
+    SliderSetting:SliderSetting
 });
 
 

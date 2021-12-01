@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryList from '../components/CategoryList';
+import SliderSetting from '../components/SliderSetting';
 
 
 function Setting(){
@@ -7,6 +8,7 @@ function Setting(){
 	return(
 		<div>
 			<CategoryList/>
+			<SliderSetting/>
 		</div>
 	)
 }
