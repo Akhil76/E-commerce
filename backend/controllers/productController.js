@@ -32,7 +32,6 @@ const addProduct = asynchandler(async(req,res)=>{
     res.status(200).json({
         message:"Server error occurred and product adding failed!"
     });
-    
    }
 });
 
