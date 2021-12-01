@@ -108,7 +108,7 @@ const delproduct = asynchandler(async(req,res)=>{
 const allproducts = asynchandler(async(req,res)=>{
 
 try{
-    ProductModel.find()
+    const pro = ProductModel.find()
     .sort({ _id: -1 }) // for displaying latest post at first 
     .exec((err,data)=>{
         if(err){
@@ -119,7 +119,7 @@ try{
             res.send(data)
         }
     })  
-
+    
   }catch{
     res.status(401).json({
         "error": "Server error occurred!"

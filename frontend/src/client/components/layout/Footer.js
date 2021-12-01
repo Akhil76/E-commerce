@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import { Container,Divider,Grid, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { fetch_catagory } from '../../statemanager/actions/catagory';
+import { fetch_catagory } from '../../../statemanager/actions/catagory';
 import { useDispatch,useSelector } from "react-redux";
 import {Link} from 'react-router-dom';
 

@@ -3,7 +3,7 @@ const CatagoryModel = require('../models/CatagoryModel');
 //"Subcatagory subcatagory_two"
 
 const displaycatagory = asynchandler(async(req,res)=>{
-    CatagoryModel.find()
+   CatagoryModel.find()
     .populate({
         path:"Subcatagory",
         populate:{
@@ -19,7 +19,7 @@ const displaycatagory = asynchandler(async(req,res)=>{
             res.send(data)
         }
     });
-    
+      
 });
 
 

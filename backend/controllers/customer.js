@@ -1,20 +1,23 @@
 const asynchandler = require('express-async-handler');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const customerModel = require('../models/customer');
 
 
 const customer = asynchandler(async(req,res)=>{
 
     try{
-       const{FirstName,LastName,Phone,Email,Address,UserName,Password} = req.body;
+       const{FirstName,LastName,UserName,Phone,Email,Address,Password} = req.body;
+       const hashedpassword = await bcrypt.hash(Password,10);
 
        const addCustomer = new customerModel({
             FirstName:FirstName,
             LastName:LastName,
+            UserName:UserName,
             Phone:Phone,
             Email: Email,
             Address:Address,
-            UserName:UserName,
-            Password:Password,
+            Password:hashedpassword,
        });
        await addCustomer.save();
 
@@ -28,6 +31,55 @@ const customer = asynchandler(async(req,res)=>{
        }
 });
 
+
+//--------customer login -------------
+const customerlogin = asynchandler(async(req,res)=>{
+
+    try{
+          const {UserName,Password} = req.body;
+  
+          const customer = await customerModel.find({UserName:UserName});
+  
+          if(customer && customer.length>0){
+              const isValidPassword = await bcrypt.compare(Password,customer[0].Password);
+  
+              if(isValidPassword){
+  
+              const customertoken = jwt.sign({
+                  Id: customer[0]._id,
+                  UserName : customer[0].UserName,
+                  FirstName : customer[0].FirstName,
+                  LastName : customer[0].LastName,
+                  Email : customer[0].Email,
+                  Address : customer[0].Address,
+                  CartItems : customer[0].CartItems
+              },process.env.JWT_SECRET,{
+                  expiresIn: "2h"
+              });
+  
+              res.status(200).json({
+                customertoken: `Bearer ${customertoken}`,
+                message: "Logged in successfully."
+              });
+              }else{ 
+              res.status(401).json({
+                  "error": "Password does not match!"
+              });
+          }
+          }else{
+              res.status(401).json({
+                  "error": "Username does not match!"
+              });
+          }
+  
+    }catch{
+      res.status(401).json({
+          "error": "Server error occurred!"
+      });
+    }
+  })
+
+//----------end--------------------
 const addToCart = asynchandler(async(req,res)=>{
     try{
         const customerId = "616056824fa95811a82585bd"; //req.params.customerId
@@ -69,4 +121,4 @@ const cartItem = asynchandler(async(req,res)=>{
     })
 });
 
-module.exports = {customer,addToCart,cartItem};
+module.exports = {customer,customerlogin,addToCart,cartItem};

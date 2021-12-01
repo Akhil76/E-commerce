@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import Slider from '../components/Slider';
+import ImageSlider from '../components/ImageSlider';
 import Card from '../components/Card';
 import {connect} from 'react-redux';
 import {fetch_all_product} from '../../statemanager/actions/product';
@@ -21,7 +21,7 @@ class Home extends React.Component{
 
         return(
             <div className="client_page">
-                 <Slider/>
+                 <ImageSlider/>
                  <Grid direction="row" justifyContent="flex-start" container>
                     {
                         products.map(product=>

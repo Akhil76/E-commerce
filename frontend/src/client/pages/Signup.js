@@ -3,28 +3,38 @@ import { Button,Box,Grid, Typography,TextField } from '@material-ui/core';
 
 
 
-class Signup extends React.Component{
+function Signup(){
    
-    render(){
         return(
             <div className="client_page">
-                <Grid direction="row" justifyContent="flex-start" container>
-                  <Grid item xs={12} sm={12} md={12}>
-                    <Typography variant="h6">Register please.</Typography>
-                  </Grid>
-                  <Grid item xs={6} sm={6} md={6}>
-                    <Box>
-                        <div style={{marginBottom:"20px"}}>
+                    <Box
+                    style={{
+                        display:"block",
+                        marginLeft: "auto",
+                        marginRight:"auto",
+                        width:"60%",
+                        marginTop:"20px"
+                        }}
+                    >
+                        <form>
+                        <div style={{marginBottom:"20px",marginTop:"20px"}}>
                             <TextField
                             fullWidth
+                            style={{marginRight:"20px",marginBottom:"20px"}}
                             label="First Name" 
                             variant="outlined"
                             />
-                        </div>
-                        <div style={{marginBottom:"20px"}}>
                             <TextField
                             fullWidth
                             label="Last Name" 
+                            variant="outlined"
+                            />
+                        </div>
+                       
+                        <div style={{marginBottom:"20px"}}>
+                            <TextField
+                            fullWidth
+                            label="UserName" 
                             variant="outlined"
                             />
                         </div>
@@ -45,6 +55,13 @@ class Signup extends React.Component{
                         <div style={{marginBottom:"20px"}}>
                             <TextField
                             fullWidth
+                            label="Address" 
+                            variant="outlined"
+                            />
+                        </div>
+                        <div style={{marginBottom:"20px"}}>
+                            <TextField
+                            fullWidth
                             label="Password" 
                             variant="outlined"
                             />
@@ -57,12 +74,11 @@ class Signup extends React.Component{
                             />
                         </div>
                         <Button variant="contained" color="primary">Sign up</Button>
+                        </form>
                     </Box>
-                  </Grid>
-                </Grid>
+                 
             </div>
         )
-    }
 }
 
 

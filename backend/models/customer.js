@@ -12,6 +12,10 @@ const customerSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    UserName:{
+        type:String,
+        required:true
+    },
     Phone:{
         type:String,
         required:true
@@ -21,10 +25,6 @@ const customerSchema = new mongoose.Schema({
         required:true
     },
     Address:{
-        type:String,
-        required:true
-    },
-    UserName:{
         type:String,
         required:true
     },

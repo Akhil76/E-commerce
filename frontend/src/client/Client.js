@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import Header from './components/Header';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import Navigation from './components/layout/Navigation';
+import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Product from './pages/Product';
 import ProductDetails from './pages/ProductDetails';

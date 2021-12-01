@@ -3,7 +3,7 @@ import { Button, Container, Grid,Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import Search from './Search';
+import Search from '../Search';
 
 const useStyles = makeStyles((theme) => ({
     root:{

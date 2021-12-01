@@ -2,7 +2,7 @@ import React from 'react';
 import {AppBar} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {connect} from 'react-redux';
-import {fetch_catagory} from '../../statemanager/actions/catagory';
+import {fetch_catagory} from '../../../statemanager/actions/catagory';
 import {NavLink} from 'react-router-dom';
 
 

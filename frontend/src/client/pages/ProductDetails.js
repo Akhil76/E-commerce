@@ -41,6 +41,7 @@ function ProductDetails(props){
                             </div>
                            <Typography variant="h5" >Product Name:{productdetails.ProductName}</Typography>
                            <Typography variant="h6" >Price:{productdetails.Price}</Typography>
+                           <Typography variant="h6">{productdetails.Description}</Typography>
                             <Toolbar className={classes.Toolbar}>
                                 <Button variant="contained" color="primary">Buy Now</Button>
                                 <Button variant="contained" color="primary">Add to Cart</Button>
