@@ -1,4 +1,7 @@
-import {DISPLAY_SLIDER, DISPLAY_SLIDER_CLIENT} from "../action_type/constants";
+import {ADD_SLIDER,
+    DEL_SLIDER,
+    DISPLAY_SLIDER, 
+    DISPLAY_SLIDER_CLIENT} from "../action_type/constants";
 
 const initialstate = {
     items:[]
@@ -6,6 +9,10 @@ const initialstate = {
 
 const SliderSetting = (state=initialstate,action)=>{
         switch (action.type){
+            case ADD_SLIDER:
+                return{...state,
+                    addslider: action.payload
+                } 
             case DISPLAY_SLIDER:
                 return{
                     ...state,
@@ -15,6 +22,13 @@ const SliderSetting = (state=initialstate,action)=>{
                 return{
                     ...state,
                     items: action.payload.slider
+                }  
+            case DEL_SLIDER:
+                return{
+                    ...state,
+                    items:state.items.map((e)=>
+                    e._id===action.payload.id?action.payload:e
+                    )
                 }    
             default :
                 return state    

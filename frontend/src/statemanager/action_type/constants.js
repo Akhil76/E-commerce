@@ -31,6 +31,9 @@ export const EDIT_PRODUCT_DISPLAY = 'EDIT_PRODUCT_DISPLAY';
 export const CART = 'CART';
 //----Searching products-------
 export const SEARCH = 'SEARCH';
-//----Displaying Slider in admin panel---------
+//----Slider in admin panel---------
 export const DISPLAY_SLIDER = 'DISPLAY_SLIDER';
+export const ADD_SLIDER = 'ADD_SLIDER';
+export const DEL_SLIDER = 'DEL_SLIDER';
+//----Slider in client part---------------------------------
 export const DISPLAY_SLIDER_CLIENT = 'DISPLAY_SLIDER_CLIENT';

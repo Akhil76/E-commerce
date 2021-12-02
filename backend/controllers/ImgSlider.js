@@ -1,14 +1,15 @@
 const asynchandler = require('express-async-handler');
+const fs = require('fs');
 const ImgSliderModel = require('../models/ImgSlider');
 
 
 const addingslider = asynchandler(async(req,res)=>{
     
     try{
-        const {title,link} = req.body;
+        const {Title,Link} = req.body;
         const addslider = new ImgSliderModel({
-            Title:title,
-            Link:link,
+            Title,
+            Link,
             Image:req.file.filename
         });
         await addslider.save();
@@ -45,4 +46,31 @@ const displayslider = asynchandler(async(req,res)=>{
     }
 });
 
-module.exports = {addingslider,displayslider}; 
+//-----------Deleting slider----------------
+const delslider = asynchandler(async(req,res)=>{
+   
+    try{
+        
+        const id = req.params.id;
+        const deletedslider = await ImgSliderModel.findByIdAndRemove(id) .exec();
+       
+        //--------Deleting img file------------------
+        const path = '../frontend/public/uploads/';
+        const fileNameWithPath = path+deletedslider.Image;
+        if(deletedslider.Image){ //If there is no img file, fs.unlink will not work
+            fs.unlink(fileNameWithPath, (err) => {
+                console.log(err);
+              });
+        }
+        //------------------------------------------
+        res.send('Slider is successfully deleted.');
+    }catch{
+        res.status(401).json({
+            "error": "Server error occurred!"
+        }); 
+    }
+})
+
+//------------------------------------------
+
+module.exports = {addingslider,displayslider,delslider}; 

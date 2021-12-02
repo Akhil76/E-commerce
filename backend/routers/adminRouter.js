@@ -14,7 +14,7 @@ const displaycatagory = require('../controllers/displaycatagory');
 const {addProduct,editproduct,delproduct,allproducts} = require('../controllers/productController');
 const {mainCatagory,subcatagory,subcatagoryTwo} = require('../controllers/catagorySelect');
 const {adminprofile,login} = require('../controllers/adminprofile');
-const {addingslider,displayslider} = require('../controllers/ImgSlider');
+const {addingslider,displayslider,delslider} = require('../controllers/ImgSlider');
 const upload = require('../middlewares/upload');
 const authenticated = require('../middlewares/authenticated');
 
@@ -50,8 +50,9 @@ router.delete('/delproduct/:id',delproduct);
 //------------------------------------------------------------------
 router.post('/adminset',upload.single('ProductImg'),adminprofile);
 //---------adding slider--------------------------------------------
-router.post('/addsliderimg',upload.single('SliderImg'),addingslider);
+router.post('/addsliderimg',upload.single('Image'),addingslider);
 router.get('/imgslider',displayslider);
+router.delete('/delslider/:id',delslider);
 //------------------------------------------------------------------
 router.post('/login',login);
 
