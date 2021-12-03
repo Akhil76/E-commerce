@@ -46,6 +46,44 @@ const displayslider = asynchandler(async(req,res)=>{
     }
 });
 
+//-----------Editing Slider-----------------------
+const editslider = asynchandler(async(req,res)=>{
+    try{
+        //update from frontend-----------------------------------
+        const id = req.params.id;
+        const {Title,Link} = req.body;
+
+        const updatedSlider ={
+           Title,
+           Link
+        };
+        if(req.file){
+            const Image = req.file.filename;
+            updatedSlider.Image = Image;
+        }
+        
+        const editedSlider= await ImgSliderModel.findByIdAndUpdate(
+            {_id:id},
+            {$set:updatedSlider}
+        );
+         //--------replacing img file------------------
+       
+         const path = '../frontend/public/uploads/';
+         const fileNameWithPath = path+editedSlider.Image;
+         if(req.file){ //If there is no img file, fs.unlink will not work
+             fs.unlink(fileNameWithPath, (err) => {
+                 //console.log(err);
+               });
+         }
+         //------------------------------------------
+        res.json(editedSlider);
+    }catch{
+        res.status(200).json({
+            message:"Server error occurred and updating failed!"
+        })
+    }
+});
+
 //-----------Deleting slider----------------
 const delslider = asynchandler(async(req,res)=>{
    
@@ -71,6 +109,6 @@ const delslider = asynchandler(async(req,res)=>{
     }
 })
 
-//------------------------------------------
+//-------------------------------------------------------------------------------
 
-module.exports = {addingslider,displayslider,delslider}; 
+module.exports = {addingslider,displayslider,delslider,editslider}; 

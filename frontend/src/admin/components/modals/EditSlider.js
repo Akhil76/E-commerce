@@ -3,7 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-//import {editproduct} from '../../../statemanager/actions/editandDelProduct';
+import {editslider} from '../../../statemanager/actions/SliderSetting';
 import { useDispatch } from 'react-redux';
 
 
@@ -45,7 +45,6 @@ export default function EditSlider(props) {
     Link:props.slider.Link,
     OldImage:props.slider.Image,
     Image:null
-    
   });
   
   const submithandler=(e)=>{
@@ -55,7 +54,7 @@ export default function EditSlider(props) {
         formdata.append("Link",editedSlider.Link);
         formdata.append("Image",editedSlider.Image);
 
-       // dispatch(editSlider(props.slider._id,formdata));
+       dispatch(editslider(props.slider._id,formdata));
 
         // setEditedSlider({
         //     Title:"",
@@ -135,12 +134,10 @@ export default function EditSlider(props) {
                   >Close</Button>
                 </div>
           </form>
-          {/* <p>Output</p>
-          <p>{editedProduct.ProductName}</p>
-          <p>{editedProduct.Price}</p>
-          <p>{editedProduct.Quantity}</p>
-          <p>{editedProduct.Description}</p>
-          <p>{editedProduct.Catagory}</p> */}
+          <p>Output</p>
+          <p>{editedSlider.Title}</p>
+          <p>{editedSlider.Link}</p>
+         
         </Box>
       </Modal>
     </div>

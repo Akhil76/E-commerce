@@ -34,6 +34,7 @@ export const SEARCH = 'SEARCH';
 //----Slider in admin panel---------
 export const DISPLAY_SLIDER = 'DISPLAY_SLIDER';
 export const ADD_SLIDER = 'ADD_SLIDER';
+export const EDIT_SLIDER = 'EDIT_SLIDER';
 export const DEL_SLIDER = 'DEL_SLIDER';
 //----Slider in client part---------------------------------
 export const DISPLAY_SLIDER_CLIENT = 'DISPLAY_SLIDER_CLIENT';

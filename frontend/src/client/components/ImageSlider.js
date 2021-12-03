@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
+import {NavLink} from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux';
 import {displaySliderClient} from '../../statemanager/actions/SliderSetting';
 
@@ -20,7 +21,7 @@ function ImageSlider(){
             sliders.map((item)=>(
             <div>
                 <img src={"../uploads/"+item.Image} />
-                <a href="/cart"> <p className="legend">{item.Title}</p></a>
+                <NavLink to={item.Link}><p className="legend">{item.Title}</p></NavLink>
             </div>
                 ))
             }

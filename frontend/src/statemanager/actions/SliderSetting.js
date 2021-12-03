@@ -2,6 +2,7 @@ import axios from 'axios';
 import{ ADD_SLIDER,
     DISPLAY_SLIDER,
     DISPLAY_SLIDER_CLIENT,
+    EDIT_SLIDER,
     DEL_SLIDER
 } from '../action_type/constants';
 
@@ -56,6 +57,25 @@ export const displaySliderClient = ()=>(dispatch)=>{
     })
 }
 
+export const editslider = (id,formdata)=>(dispatch)=>{
+    axios.put(`/admin/editslider/${id}`,formdata,{
+        headers:{
+            "content-type": "application/json" 
+        }
+    })
+
+    .then(response=>{
+        dispatch({
+            type:EDIT_SLIDER,
+            payload:{
+                formdata:response.data
+            }
+        })
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+};
 
 export const delslider = (id)=>(dispatch)=>{
     axios.delete(`/admin/delslider/${id}`)

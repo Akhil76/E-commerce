@@ -64,9 +64,9 @@ const editproduct = asynchandler(async(req,res)=>{
          //--------replacing img file------------------
          const path = '../frontend/public/uploads/';
          const fileNameWithPath = path+editedProduct.ProductImg;
-         if(editedProduct.ProductImg){ //If there is no img file, fs.unlink will not work
+         if(req.file){ //If there is no img file, fs.unlink will not work
              fs.unlink(fileNameWithPath, (err) => {
-                 console.log(err);
+                 //console.log(err);
                });
          }
          //------------------------------------------
