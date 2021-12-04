@@ -1,6 +1,10 @@
 import React from 'react';
-import { Button, Grid, TextField, Typography,Toolbar,Box } from '@material-ui/core';
+import { Button, Grid,TextField,Typography,Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {customerlogin} from '../../statemanager/actions/auth';
+
+
 
 const customStyles = {
     title:{
@@ -12,7 +16,28 @@ const customStyles = {
 
 class Signin extends React.Component{
     
+    state={
+        UserName:"",
+        Password:"", 
+    }
+
+    changeHandler =event=>{
+        this.setState({
+            [event.target.name]:event.target.value
+        })
+    };
+    
+
+    submitHandler =event=>{
+        event.preventDefault();
+        this.props.customerlogin({
+            UserName:this.state.UserName,
+            Password:this.state.Password
+        },this.props.history);
+    }
+
     render(){
+        const {UserName,Password} = this.state;
         return(
             <div className="client_page">
                 <Grid container>
@@ -24,28 +49,37 @@ class Signin extends React.Component{
                     marginTop:"100px"
                     }}>
                       <Typography style={customStyles.title} variant="h6" align="center">Sign in</Typography>
-                      <div>
+                      <form onSubmit={this.submitHandler}>
                           <div style={{marginBottom:"20px"}}>
-                              <TextField
+                              <input
                               fullWidth
                               label="Username" 
                               variant="outlined"
+                              name="UserName"
+                              value={UserName}
+                              onChange={this.changeHandler}
                               />
                           </div>
                           <div style={{marginBottom:"20px"}}>
-                              <TextField
+                              <input
                               fullWidth
                               label="Password" 
                               variant="outlined"
+                              name="Password"
+                              value={Password}
+                              onChange={this.changeHandler}
                               />
                           </div>
                           <Button
                           style={{textTransform:"none"}}
                           fullWidth
+                          type="submit"
                           variant="contained"
                           color="primary"
                           >Sign in</Button>
-                      </div>
+                      </form>
+                      <p>{UserName}</p>
+                      <p>{Password}</p>
                       <div>
                         <Typography variant="h6">Don't have an account? 
                           <Link to='/signup'>
@@ -63,4 +97,4 @@ class Signin extends React.Component{
 
 
 
-export default Signin ;
+export default connect(null,{customerlogin})(Signin);

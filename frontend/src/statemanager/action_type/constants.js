@@ -10,10 +10,12 @@ export const FETCH_PRODUCT_BY_SUB_CAT = 'FETCH_PRODUCT_BY_SUB_CAT';
 export const CATAGORY_SELECT = 'CATAGORY_SELECT';
 export const SUBCATAGORY_SELECT = 'SUBCATAGORY_SELECT';
 export const SUBCATAGORY_TWO_SELECT = 'SUBCATAGORY_TWO_SELECT';
+//------Admin login---------------------------------
 export const LOGIN = 'LOGIN';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
-
+//-------Customer login-----------------------------
+export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';
 //  Catagory setting in admin panel-----------------
 export const DISPLAY_CATAGORIES = 'DISPLAY_CATAGORIES';
 export const ADD_MAIN_CATAGORY = 'ADD_MAIN_CATAGORY';

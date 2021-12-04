@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {allproducts,productBymainCatagory,productBysubCatagory,productbyChildCat,single_product} = require('../controllers/productController');
 const displaycatagory = require('../controllers/displaycatagory');
-const {customer,addToCart,cartItem} = require('../controllers/customer');
+const {customerRegistration,customerlogin,addToCart,cartItem} = require('../controllers/customer');
 const SearchProduct = require('../controllers/SearchProduct');
 const {displayslider} = require('../controllers/ImgSlider');
 
@@ -15,7 +15,8 @@ router.get('/allproducts', allproducts);
 router.get('/singleproduct/:id',single_product);
 router.get('/maincatagory/:catId',productBymainCatagory);
 router.get('/subcatagory/:subcatId',productBysubCatagory);
-router.post('/addcustomer',customer);
+router.post('/addcustomer',customerRegistration);
+router.post('/customerlogin',customerlogin);
 router.get('/addtocart',addToCart);
 router.get('/cartitem/:customerid',cartItem);
 router.get('/search/:productName',SearchProduct);

@@ -8,7 +8,7 @@ class Login extends React.Component{
 
     state={
         Username:"",
-        Password:"",
+        Password:"", 
     }
 
     changeHandler =event=>{
@@ -26,11 +26,11 @@ class Login extends React.Component{
         },this.props.history);
        
     }
-
+   
 
     render(){
         const {Username,Password} = this.state;
-       
+        //const {ErrorMsg} = this.props;
         return(
         
             <Container>
@@ -45,6 +45,7 @@ class Login extends React.Component{
                 >
                     <Toolbar>
                         <Typography variant="h5">Admin Login</Typography>
+                        <p></p>
                     </Toolbar> 
                     {/* <div>
                         <div>
