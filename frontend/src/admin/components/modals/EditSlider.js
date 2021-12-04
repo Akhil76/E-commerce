@@ -134,9 +134,9 @@ export default function EditSlider(props) {
                   >Close</Button>
                 </div>
           </form>
-          <p>Output</p>
+          {/* <p>Output</p>
           <p>{editedSlider.Title}</p>
-          <p>{editedSlider.Link}</p>
+          <p>{editedSlider.Link}</p> */}
          
         </Box>
       </Modal>
