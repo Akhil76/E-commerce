@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {Button, Divider, Grid,Toolbar,Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {NavLink} from 'react-router-dom';
+import {addtoCart} from '../../statemanager/actions/cart';
+import {customerlogin} from '../../statemanager/actions/auth';
+import { useDispatch,useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -37,7 +40,20 @@ const useStyles = makeStyles((theme) => ({
 
 function Card(props){
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const customer = useSelector((state)=>state.auth.customer);
     
+    useEffect(()=>{
+        dispatch(customerlogin());
+      },[]);
+
+    const [product,setProduct] = useState({
+        ProductId:props._id,
+        ProductName:props.ProductName,
+        ProductImg:props.Img,
+        Price:props.Price
+      });
+
     return(
        <Grid className={classes.root} item xs={12} sm={6} md={3}>
           <NavLink to={"/productdetails/"+props.id}>
@@ -54,7 +70,10 @@ function Card(props){
           </div>
           <Toolbar className={classes.Toolbar}>
               <NavLink className={classes.btnlink} to={"/productdetails/"+props.id}><Button variant="contained" color="primary">Details</Button></NavLink>
-              <Button variant="contained">Add to Cart</Button>
+              <Button 
+              variant="contained"
+              onClick={()=>{dispatch(addtoCart(customer.Id,product))}}
+              >Add to Cart</Button>
           </Toolbar>
        </Grid>
     )

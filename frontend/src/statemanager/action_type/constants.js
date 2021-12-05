@@ -16,6 +16,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 //-------Customer login-----------------------------
 export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';
+export const CUSTOMER_LOGOUT = 'CUSTOMER_LOGOUT';
 //  Catagory setting in admin panel-----------------
 export const DISPLAY_CATAGORIES = 'DISPLAY_CATAGORIES';
 export const ADD_MAIN_CATAGORY = 'ADD_MAIN_CATAGORY';
@@ -30,7 +31,8 @@ export const DELETE_CHILD_CAT = 'DELETE_CHILD_CAT';
 //---Displaying all products in adminpanel------------
 export const EDIT_PRODUCT_DISPLAY = 'EDIT_PRODUCT_DISPLAY';
 //---Displaying Cart items--------------------------------
-export const CART = 'CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const CART_ITEM = 'CART_ITEM';
 //----Searching products-------
 export const SEARCH = 'SEARCH';
 //----Slider in admin panel---------

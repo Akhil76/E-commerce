@@ -1,44 +1,33 @@
 import React,{useEffect, useState} from 'react';
 import { Grid, Typography,Button } from '@material-ui/core';
 import {useDispatch,useSelector} from 'react-redux';
+import {customerlogin} from '../../statemanager/actions/auth';
 import {cartItem} from '../../statemanager/actions/cart';
-
 
 
 function Cart(){
     const dispatch = useDispatch();
-    const cart = useSelector((state)=>state.cart);
-
-    const[customerid,setCustomerid] = useState("");
-
-    const changeHandler =e=>{
-        setCustomerid(e.target.value)
-    };
-
-    const submithandler=e=>{
-        e.preventDefault();
-        dispatch(cartItem(customerid));
-    }
+    const customer = useSelector((state)=>state.auth.customer);
+    const cart = useSelector((state)=>state.cart.items);
+    const[customerid,setCustomerid] = useState(customer.Id);
 
     useEffect(()=>{
-      dispatch(cartItem());
+      dispatch(customerlogin());
+      dispatch(cartItem(customerid));
     },[]);
 
      return(
          <div className="client_page">
             <Grid direction="row" justifyContent="flex-start" container>
-                <Typography variant="h6">Your cart</Typography>
-                <form onSubmit={submithandler}>
-                    <input
-                    Name="customerid"
-                    type="text"
-                    placeholder="customerid"
-                    value={customerid}
-                    onChange={changeHandler}
-                    // onChange={(e)=> setCustomerid(e.target.value)}
-                    />
-                    <Button type="submit" variant="contained" color="primary">Search</Button>
-                </form>
+                <Grid item xs={12} sm={12} md={12}>
+                    <Typography variant="h6">Your cart</Typography>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
+                    <Typography>{customer.FirstName} {customer.LastName}</Typography>
+                    <Typography>{customer.Email}</Typography>
+                    
+                </Grid>
+                <Grid item xs={12} sm={12} md={12}>
                 {
                     cart.map((item)=>
                         <div>
@@ -54,6 +43,7 @@ function Cart(){
                         </div>
                     )
                 }
+                </Grid>
             </Grid>    
         </div>
         )

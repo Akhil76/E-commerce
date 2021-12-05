@@ -1,17 +1,26 @@
-import { CART} from "../action_type/constants";
+import { ADD_TO_CART,CART_ITEM} from "../action_type/constants";
 
-/*const initialstate = {
+const initialstate = {
     items:[]
-}*/
+}
 
-const cartItemReducer = (state=[],action)=>{
+const cartItemReducer = (state=initialstate,action)=>{
     switch (action.type){
-        case CART:
-            {return action.payload.cartitems}
+        case ADD_TO_CART:
+            return{
+                ...state,
+                items:state.items.map((e)=>
+                e._id===action.payload.id?action.payload:e
+                )  
+              }
+        case CART_ITEM:
+            return{
+                ...state,
+                items : action.payload.cartitems
+            }      
         default :
             return state    
     }
-        
             
 };
 

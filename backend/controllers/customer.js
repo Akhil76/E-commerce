@@ -111,13 +111,14 @@ const customerlogin = asynchandler(async(req,res)=>{
 //----------end--------------------
 const addToCart = asynchandler(async(req,res)=>{
     try{
-        const customerId = "616056824fa95811a82585bd"; //req.params.customerId
+        const customerId= req.params.id; //req.params.customerId
+        const {ProductId,ProductName,ProductImg,Price} = req.body;
         // CartItem Object----------------------------------------------------
         const CartItems = {
-            ProductId:"614b48a96ac1600c207d5ad5",
-            ProductName:"Dell i9 Laptop d88",
-            ProductImg:"1632323753306.jpg",
-            Price:"55000"
+            ProductId,
+            ProductName,
+            ProductImg,
+            Price
         };
         await customerModel.updateOne({
             _id:customerId
@@ -126,7 +127,7 @@ const addToCart = asynchandler(async(req,res)=>{
                 CartItems:CartItems
             }
         });
-        res.send("One item is added to cart successfully.");
+        res.send("One product is added to cart successfully.");
     }catch{
         res.status(200).json({
             message: "Server error occurred!"
@@ -134,7 +135,7 @@ const addToCart = asynchandler(async(req,res)=>{
     }
 });
 
-const cartItem = asynchandler(async(req,res)=>{
+const cartItemDisplay = asynchandler(async(req,res)=>{
 
     const customerId = req.params.customerid;
     
@@ -150,4 +151,4 @@ const cartItem = asynchandler(async(req,res)=>{
     })
 });
 
-module.exports = {customerRegistration,customerlogin,addToCart,cartItem};
+module.exports = {customerRegistration,customerlogin,addToCart,cartItemDisplay};

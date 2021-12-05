@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {CUSTOMER_LOGIN, LOGIN,LOGIN_ERROR} from '../action_type/constants';
+import {CUSTOMER_LOGIN, CUSTOMER_LOGOUT, LOGIN,LOGIN_ERROR} from '../action_type/constants';
 import setAuthHeader from '../../utils/setAuthHeader';
 
 export const login =(admindata,history)=>dispatch=>{
@@ -67,3 +67,14 @@ export const customerlogin =(customerdata,history)=>dispatch=>{
     })
 }
 
+export const customerlogout = history =>{
+    localStorage.removeItem('customer_auth_token');
+    history.push('/')
+    //window.location.href="/login";
+    return{
+        type:CUSTOMER_LOGOUT,
+        payload:{
+            customer:{}
+        }
+    }
+}
