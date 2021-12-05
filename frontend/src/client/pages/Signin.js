@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Grid,TextField,Typography,Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
-import {customerlogin} from '../../statemanager/actions/auth';
+import {customerlogin} from '../../statemanager/actions/customer_auth';
 
 
 
@@ -51,7 +51,7 @@ class Signin extends React.Component{
                       <Typography style={customStyles.title} variant="h6" align="center">Sign in</Typography>
                       <form onSubmit={this.submitHandler}>
                           <div style={{marginBottom:"20px"}}>
-                              <input
+                              <TextField
                               fullWidth
                               label="Username" 
                               variant="outlined"
@@ -61,7 +61,7 @@ class Signin extends React.Component{
                               />
                           </div>
                           <div style={{marginBottom:"20px"}}>
-                              <input
+                              <TextField
                               fullWidth
                               label="Password" 
                               variant="outlined"
@@ -78,8 +78,7 @@ class Signin extends React.Component{
                           color="primary"
                           >Sign in</Button>
                       </form>
-                      <p>{UserName}</p>
-                      <p>{Password}</p>
+                      
                       <div>
                         <Typography variant="h6">Don't have an account? 
                           <Link to='/signup'>

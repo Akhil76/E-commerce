@@ -1,55 +1,52 @@
-import React,{useEffect, useState} from 'react';
-import { Grid, Typography,Button } from '@material-ui/core';
-import {useDispatch,useSelector} from 'react-redux';
-import {customerlogin} from '../../statemanager/actions/auth';
-import {cartItem} from '../../statemanager/actions/cart';
+import React, { useEffect, useState } from 'react';
+import { Grid, Typography, Button } from '@material-ui/core';
+import Card from '../components/Card';
+import { useDispatch, useSelector } from 'react-redux';
+import { customerlogin } from '../../statemanager/actions/customer_auth';
+import { cartItem } from '../../statemanager/actions/cart';
 
 
-function Cart(){
+function Cart() {
     const dispatch = useDispatch();
-    const customer = useSelector((state)=>state.auth.customer);
-    const cart = useSelector((state)=>state.cart.items);
-    const[customerid,setCustomerid] = useState(customer.Id);
+    const customer = useSelector((state) => state.customer_auth.customer);
+    const cart = useSelector((state) => state.cart.items);
+    const [customerid, setCustomerid] = useState(customer.Id);
 
-    useEffect(()=>{
-      dispatch(customerlogin());
-      dispatch(cartItem(customerid));
-    },[]);
+    useEffect(() => {
+        dispatch(customerlogin());
+        dispatch(cartItem(customerid));
+    }, []);
 
-     return(
-         <div className="client_page">
-            <Grid direction="row" justifyContent="flex-start" container>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Typography variant="h6">Your cart</Typography>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Typography>{customer.FirstName} {customer.LastName}</Typography>
-                    <Typography>{customer.Email}</Typography>
-                    
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                {
-                    cart.map((item)=>
-                        <div>
-                            <p>{item._id}</p>
-                            <p>{item.UserName} {item.LastName}</p>
-                            <p>Products in your cart : {item.CartItems.length}</p>
-                            <div>{item.CartItems.map((CartItems)=>
-                            <div style={{border: "1px solid"}}>
-                                <p>Product Name :{CartItems.ProductName}</p>
-                                <p>Price : {CartItems.Price}</p>
-                            </div>
-                            )}</div>
-                        </div>
-                    )
-                }
-                </Grid>
-            </Grid>    
+    return (
+        <div className="client_page">
+            <Typography>Your cart:</Typography>
+            {
+                cart.map((item) =>
+                    <div>
+                        <Typography>{item.UserName} {item.LastName}</Typography>
+                        <Typography>Your id: {item._id}</Typography>
+                        <Typography>Products in your cart : {item.CartItems.length}</Typography>
+                        <Grid direction="row" justifyContent="flex-start" container>
+                            {
+                                item.CartItems.map((CartItems) =>
+                                    <Card
+                                    id={CartItems._id}
+                                    ProductName={CartItems.ProductName}
+                                    Price={CartItems.Price}
+                                    Img={CartItems.ProductImg}
+                                    />
+                                )
+                            }
+                        </Grid>
+                    </div>
+                )
+            }
+
         </div>
-        )
+    )
 }
 
 
 
 
-export default Cart ;
+export default Cart;

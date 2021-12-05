@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Button, Container, Grid,Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Search from '../Search';
+import { useDispatch, useSelector } from 'react-redux';
+import {customerlogin,customerlogout } from '../../../statemanager/actions/customer_auth';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -38,6 +42,14 @@ const useStyles = makeStyles((theme) => ({
 
 function Header(){
     const classes = useStyles();
+    const dispatch = useDispatch();
+    const Authenticated = useSelector((state) => state.customer_auth.isAuthenticated);
+    
+
+    useEffect(() => {
+        dispatch(customerlogin());
+    }, []);
+
     return(
         <div className={classes.root}>
             <Container>
@@ -61,12 +73,21 @@ function Header(){
                                 color="secondary" 
                                 startIcon={<AddShoppingCartIcon />}>Cart</Button>
                             </Link>
+                            {
+                            Authenticated?
+                            <Button
+                            className={classes.btn} 
+                            variant="outlined" 
+                            color="secondary"
+                            onClick={()=>{dispatch(customerlogout())}}
+                            >Sign out</Button>:
                             <Link className={classes.btnlink} to="/signin">
                                 <Button 
                                 className={classes.btn} 
                                 variant="outlined" 
                                 color="secondary">Sign in</Button>
                             </Link>
+                            }
                         </div>
                     </Grid>
                     

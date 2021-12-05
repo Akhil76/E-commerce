@@ -16,6 +16,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 //-------Customer login-----------------------------
 export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';
+export const CUSTOMER_LOGIN_ERROR = 'CUSTOMER_LOGIN_ERROR';
 export const CUSTOMER_LOGOUT = 'CUSTOMER_LOGOUT';
 //  Catagory setting in admin panel-----------------
 export const DISPLAY_CATAGORIES = 'DISPLAY_CATAGORIES';

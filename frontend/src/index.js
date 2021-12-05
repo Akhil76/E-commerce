@@ -7,7 +7,6 @@ import {Provider} from 'react-redux';
 import store from './statemanager/store';
 import setAuthHeader from './utils/setAuthHeader';
 
-
 const token = localStorage.getItem('auth_token');
 
 if(token){
