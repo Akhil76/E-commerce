@@ -32,7 +32,7 @@ export const customerlogin =(customerdata,history)=>dispatch=>{
 
 export const customerlogout = history =>{
     localStorage.removeItem('customer_auth_token');
-    //history.push('/')
+    history.push('/signin')
     //window.location.href="/login";
     return{
         type:CUSTOMER_LOGIN,

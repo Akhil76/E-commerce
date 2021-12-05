@@ -151,4 +151,26 @@ const cartItemDisplay = asynchandler(async(req,res)=>{
     })
 });
 
-module.exports = {customerRegistration,customerlogin,addToCart,cartItemDisplay};
+const delcartItem = asynchandler(async(req,res)=>{
+    
+    try{
+        const customerId = req.params.customerid;
+        const productId = req.body;
+        const result = await customerModel.updateOne({
+            _id:customerId
+        },{
+            $pull:{
+                CartItems:{_id:productId}
+            }
+        });
+        res.send("One product is deleted from your cart successfully.");
+        
+    }catch{
+        res.status(200).json({
+            message: "Server error occurred to delete cart item!"
+        });
+    }
+
+})
+
+module.exports = {customerRegistration,customerlogin,addToCart,cartItemDisplay,delcartItem};

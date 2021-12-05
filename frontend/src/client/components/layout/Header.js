@@ -6,7 +6,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Search from '../Search';
 import { useDispatch, useSelector } from 'react-redux';
 import {customerlogin,customerlogout } from '../../../statemanager/actions/customer_auth';
-
+import { useHistory } from 'react-router';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Header(){
     const classes = useStyles();
+    const history = useHistory();
     const dispatch = useDispatch();
     const Authenticated = useSelector((state) => state.customer_auth.isAuthenticated);
     
@@ -79,7 +80,7 @@ function Header(){
                             className={classes.btn} 
                             variant="outlined" 
                             color="secondary"
-                            onClick={()=>{dispatch(customerlogout())}}
+                            onClick={()=>{dispatch(customerlogout(history))}}
                             >Sign out</Button>:
                             <Link className={classes.btnlink} to="/signin">
                                 <Button 

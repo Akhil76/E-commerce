@@ -63,6 +63,7 @@ class Signin extends React.Component{
                           <div style={{marginBottom:"20px"}}>
                               <TextField
                               fullWidth
+                              type="password"
                               label="Password" 
                               variant="outlined"
                               name="Password"
