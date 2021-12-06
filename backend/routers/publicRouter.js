@@ -22,7 +22,7 @@ router.get('/subcatagory/:subcatId',productBysubCatagory);
 router.post('/addcustomer',customerRegistration);
 router.post('/customerlogin',customerlogin);
 router.put('/addtocart/:id',addToCart);
-router.put('/delcartitem/:customerid',delcartItem);
+router.put('/delcartitem/:id',delcartItem);
 router.get('/cartitem/:customerid',cartItemDisplay);
 router.get('/search/:productName',SearchProduct);
 router.get('/imgslider',displayslider);

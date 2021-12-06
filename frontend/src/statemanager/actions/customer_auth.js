@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {CUSTOMER_LOGIN, CUSTOMER_LOGIN_ERROR, CUSTOMER_LOGOUT} from '../action_type/constants';
+import {CUSTOMER_LOGIN, CUSTOMER_LOGIN_ERROR} from '../action_type/constants';
 import setAuthHeader from '../../utils/setAuthHeader';
 
 

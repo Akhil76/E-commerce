@@ -13,11 +13,11 @@ export const SUBCATAGORY_TWO_SELECT = 'SUBCATAGORY_TWO_SELECT';
 //------Admin login---------------------------------
 export const LOGIN = 'LOGIN';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const LOGOUT = 'LOGOUT';
+
 //-------Customer login-----------------------------
 export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';
 export const CUSTOMER_LOGIN_ERROR = 'CUSTOMER_LOGIN_ERROR';
-export const CUSTOMER_LOGOUT = 'CUSTOMER_LOGOUT';
+
 //  Catagory setting in admin panel-----------------
 export const DISPLAY_CATAGORIES = 'DISPLAY_CATAGORIES';
 export const ADD_MAIN_CATAGORY = 'ADD_MAIN_CATAGORY';
@@ -34,6 +34,7 @@ export const EDIT_PRODUCT_DISPLAY = 'EDIT_PRODUCT_DISPLAY';
 //---Displaying Cart items--------------------------------
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const CART_ITEM = 'CART_ITEM';
+export const DEL_CART_ITEM = 'DEL_CART_ITEM';
 //----Searching products-------
 export const SEARCH = 'SEARCH';
 //----Slider in admin panel---------
