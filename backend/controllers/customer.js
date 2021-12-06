@@ -155,7 +155,7 @@ const delcartItem = asynchandler(async(req,res)=>{
     
     try{
         const customerId = req.params.id;
-        const {itemid,ProductId} = req.body;
+        const {itemid,ProductId} = req.body; //---filtered by only itemid of cart item.
         const result = await customerModel.updateOne({
             _id:customerId
         },{
@@ -164,7 +164,7 @@ const delcartItem = asynchandler(async(req,res)=>{
             }
         });
         res.send("One product is deleted from your cart successfully.");
-        console.log(itemid);
+        
     }catch{
         res.status(200).json({
             message: "Server error occurred to delete cart item!"

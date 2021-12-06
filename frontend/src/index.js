@@ -14,9 +14,21 @@ import { CUSTOMER_LOGIN,LOGIN } from './statemanager/action_type/constants';
 const token = localStorage.getItem('auth_token');
 const customer_token = localStorage.getItem('customer_auth_token');
 
-if(token){
-  setAuthHeader();
-}
+// if(token){
+//   setAuthHeader();
+// }
+
+//----to get auth admin data from localstorage token----
+if(token){ 
+  setAuthHeader(); 
+  const decode = jwtDecode(token);
+  store.dispatch({
+    type:LOGIN,
+    payload:{
+      admin: decode
+    }
+  })
+};
 //-----To get auth customer data from localstorage token-------
 if(customer_token){
   const decode = jwtDecode(customer_token);
@@ -24,14 +36,6 @@ if(customer_token){
     type:CUSTOMER_LOGIN,
     payload:{
       customer: decode
-    }
-  })
-}else if(token){  //----to get auth admin data from localstorage token----
-  const decode = jwtDecode(token);
-  store.dispatch({
-    type:LOGIN,
-    payload:{
-      admin: decode
     }
   })
 }
