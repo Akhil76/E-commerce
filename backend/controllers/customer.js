@@ -155,12 +155,12 @@ const delcartItem = asynchandler(async(req,res)=>{
     
     try{
         const customerId = req.params.customerid;
-        const productId = req.body;
+        const itemId = req.body;
         const result = await customerModel.updateOne({
             _id:customerId
         },{
             $pull:{
-                CartItems:{_id:productId}
+                CartItems:{_id:itemId}
             }
         });
         res.send("One product is deleted from your cart successfully.");

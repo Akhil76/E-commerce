@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles,Grid,Paper,Toolbar,Typography, Button } from '@material-ui/core';
-//import Card from '../components/Card';
+import {NavLink} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { customerlogin } from '../../statemanager/actions/customer_auth';
 import { cartItem } from '../../statemanager/actions/cart';
@@ -36,31 +36,35 @@ function Cart() {
 
     return (
         <div className="client_page">
-            <Typography>Your cart:</Typography>
+            <Typography variant="h6">Your cart:</Typography>
             {
                 cart.map((item) =>
                     <div>
-                        <Typography>{item.UserName} {item.LastName}</Typography>
-                        <Typography>Your id: {item._id}</Typography>
-                        <Typography>Products in your cart : {item.CartItems.length}</Typography>
+                        <Paper style={{marginBottom:"5px",padding:"10px"}}>
+                            <Typography>Name: {item.UserName} {item.LastName}</Typography>
+                            <Typography>Email: {item.Email}</Typography>
+                            <Typography>Your id: {item._id}</Typography>
+                            <Typography>Products in your cart : ({item.CartItems.length})</Typography>
+                        </Paper>
                         <Grid direction="row" justifyContent="flex-start" container>
                             {
                                 item.CartItems.map((CartItems) =>
-                                    // <Card
-                                    // id={CartItems._id}
-                                    // ProductName={CartItems.ProductName}
-                                    // Price={CartItems.Price}
-                                    // Img={CartItems.ProductImg}
-                                    // />
                                     <Grid className={classes.product_area} item xs={12} sm={12} md={12}>
                                         <Paper>
                                             <Toolbar>
                                                 <div className={classes.img}>
                                                     <img alt="ProductImg" src={"../uploads/"+CartItems.ProductImg}/>
                                                 </div>
+                                                <p>{CartItems.ProductId}</p>
                                                 <Typography style={{width:"200px"}}>{CartItems.ProductName}</Typography>
                                                 <Typography style={{width:"200px"}}>BDT:{CartItems.Price}Tk.</Typography>
-                                                <Button style={{textTransform: 'none'}} variant="contained" color="primary">Details</Button>
+                                                <NavLink className={classes.btnlink} to={"/productdetails/"+CartItems.ProductId}>
+                                                    <Button 
+                                                    style={{textTransform: 'none'}} 
+                                                    variant="contained" 
+                                                    color="primary"
+                                                    >Details</Button>
+                                                </NavLink>
                                                 <Button style={{textTransform: 'none'}} variant="contained" color="primary">Buy</Button>
                                                 <Typography style={{width:"200px",marginLeft:"20px"}}>Qty:01</Typography>
                                                 <Button style={{marginLeft:'auto',textTransform: 'none'}} variant="contained" color="primary">Remove</Button>

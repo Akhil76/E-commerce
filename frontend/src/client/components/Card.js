@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         display:"inline-flex",
         height:"170px",
         width:"170px",
-
     },
     title:{
         color:"black"
@@ -48,7 +47,7 @@ function Card(props){
       },[]);
 
     const [product,setProduct] = useState({
-        ProductId:props._id,
+        ProductId:props.id,
         ProductName:props.ProductName,
         ProductImg:props.Img,
         Price:props.Price

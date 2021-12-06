@@ -40,7 +40,7 @@ router.get('/subcatagorytwo/:subcatagoryId',subcatagoryTwo);
 router.get('/displaycatagories',displaycatagory);
 //------------------------------------------------------------------
 //----------Displaying all products in adminpanel-------------------
-router.get('/allproducts',allproducts);
+router.get('/allproducts',authenticated,allproducts);
 //---------Add products---------------------------------------------
 router.post('/addproduct',upload.single('ProductImg'),addProduct);
 //----------Edit products-------------------------------------------
