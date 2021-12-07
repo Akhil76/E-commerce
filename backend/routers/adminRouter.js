@@ -21,39 +21,39 @@ const authenticated = require('../middlewares/authenticated');
 
 
 // http://localhost:3001/admin/+
-router.post('/addcatagory', addcatagory);
-router.post('/addsubcatagory',addsubcatagory);
-router.post('/addsubcatagory_two',addsubcatagory_two);
-router.put('/editmaincatagory/:id',editMainCategory);
-router.put('/editsubcatagory/:id',editSubCategory);
-router.put('/editchildcatagory/:id',editChildCategory);
-router.delete('/deletemaincatagory/:id',deleteMainCategory);
-router.delete('/deletesubcategory/:id',deleteSubCategory);
-router.delete('/deletechildcategory/:id',deleteChildCategory);
+router.post('/addcatagory',authenticated, addcatagory);
+router.post('/addsubcatagory',authenticated,addsubcatagory);
+router.post('/addsubcatagory_two',authenticated,addsubcatagory_two);
+router.put('/editmaincatagory/:id',authenticated,editMainCategory);
+router.put('/editsubcatagory/:id',authenticated,editSubCategory);
+router.put('/editchildcatagory/:id',authenticated,editChildCategory);
+router.delete('/deletemaincatagory/:id',authenticated,deleteMainCategory);
+router.delete('/deletesubcategory/:id',authenticated,deleteSubCategory);
+router.delete('/deletechildcategory/:id',authenticated,deleteChildCategory);
 // Selecting categories----------------------------------
-router.get('/maincatagory',mainCatagory);
-router.get('/subcatagory/:catagoryId',subcatagory);
-router.get('/subcatagorytwo/:subcatagoryId',subcatagoryTwo);
+router.get('/maincatagory',authenticated,mainCatagory);
+router.get('/subcatagory/:catagoryId',authenticated,subcatagory);
+router.get('/subcatagorytwo/:subcatagoryId',authenticated,subcatagoryTwo);
 //------------------------------------------------------------------
 
 //---------Displaying all categories in Setting panel---------------
-router.get('/displaycatagories',displaycatagory);
+router.get('/displaycatagories',authenticated,displaycatagory);
 //------------------------------------------------------------------
 //----------Displaying all products in adminpanel-------------------
-router.get('/allproducts',authenticated,allproducts);
+router.get('/allproducts',authenticated,authenticated,allproducts);
 //---------Add products---------------------------------------------
-router.post('/addproduct',upload.single('ProductImg'),addProduct);
+router.post('/addproduct',authenticated,upload.single('ProductImg'),addProduct);
 //----------Edit products-------------------------------------------
-router.put('/editproduct/:id',upload.single('ProductImg'),editproduct);
+router.put('/editproduct/:id',authenticated,upload.single('ProductImg'),editproduct);
 //----------Delete products-----------------------------------------
-router.delete('/delproduct/:id',delproduct);
+router.delete('/delproduct/:id',authenticated,delproduct);
 //------------------------------------------------------------------
-router.post('/adminset',upload.single('ProductImg'),adminprofile);
+router.post('/adminset',authenticated,upload.single('ProductImg'),adminprofile);
 //---------slider--------------------------------------------
-router.post('/addsliderimg',upload.single('Image'),addingslider);
-router.get('/imgslider',displayslider);
-router.put('/editslider/:id',upload.single('Image'),editslider);
-router.delete('/delslider/:id',delslider);
+router.post('/addsliderimg',authenticated,upload.single('Image'),addingslider);
+router.get('/imgslider',authenticated,displayslider);
+router.put('/editslider/:id',authenticated,upload.single('Image'),editslider);
+router.delete('/delslider/:id',authenticated,delslider);
 //------------------------------------------------------------------
 router.post('/login',login);
 

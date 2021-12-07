@@ -7,7 +7,7 @@ export const login =(admindata,history)=>dispatch=>{
     axios.post('/admin/login',admindata)
     .then(res=>{
         const token = res.data.token;
-        localStorage.setItem('auth_token', token); 
+        localStorage.setItem('auth_token',token); 
         setAuthHeader(token);   
         const decode = jwtDecode(token);
         dispatch({
