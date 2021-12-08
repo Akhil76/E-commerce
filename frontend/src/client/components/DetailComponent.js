@@ -25,7 +25,8 @@ function DetailComponent(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const customer = useSelector((state)=>state.customer_auth.customer);
-    
+    const signed = useSelector((state)=>state.customer_auth.isAuthenticated);
+
     useEffect(()=>{
         dispatch(customerlogin());
       },[]);
@@ -51,7 +52,14 @@ function DetailComponent(props) {
                     <Button 
                     variant="contained" 
                     color="primary"
-                    onClick={()=>{dispatch(addtoCart(customer.Id,product))}}
+                    
+                    onClick={()=>{
+                        if(signed==true){
+                          dispatch(addtoCart(customer.Id,product));
+                        }else{
+                          alert("Please, sign in to add products to cart.");
+                        }
+                      }}
                     >Add to Cart</Button>
                 </Toolbar>
             </div>

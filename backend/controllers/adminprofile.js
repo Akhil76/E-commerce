@@ -48,7 +48,7 @@ const login = asynchandler(async(req,res)=>{
                 Id: admin[0]._id,
                 Username : admin[0].Username
             },process.env.JWT_SECRET,{
-                expiresIn: "2h"
+                expiresIn: "2m"
             });
 
             res.status(200).json({

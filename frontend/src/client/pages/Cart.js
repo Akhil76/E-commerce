@@ -20,7 +20,8 @@ function Cart() {
         dispatch(customerlogin());
         dispatch(cartItem(customerid));
     }, [cartItem(customerid)]);
-
+    let current_time = new Date().getTime()/1000;
+    console.log(current_time);
 
     return (
         <div className="client_page">
@@ -28,6 +29,7 @@ function Cart() {
                 signed_in ?
                     <div>
                         <Typography variant="h6">Your cart:</Typography>
+                        <p>{current_time}</p>
                         {
                             cart.map((item) =>
                                 <div>
@@ -58,7 +60,7 @@ function Cart() {
                         <Typography variant="h6">Your Cart:</Typography>
                         <Paper style={{padding:"20px"}}> 
                             <Typography variant="h2">Your cart is empty</Typography>
-                            <Typography>Signin to see the items you added previously</Typography>
+                            <Typography>Sign in to see the items you added previously</Typography>
                             <NavLink 
                             to='/signin'
                             style={{textDecoration:"none" }}
@@ -89,7 +91,6 @@ function Cart() {
         </div>
     )
 }
-
 
 
 

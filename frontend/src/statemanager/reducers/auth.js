@@ -5,7 +5,6 @@ const initialState ={
     isAuthenticated : false,
     admin:{},
     error:{},
-    
 }
 
 

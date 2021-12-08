@@ -18,6 +18,7 @@ const customer_token = localStorage.getItem('customer_auth_token');
 //   setAuthHeader();
 // }
 
+
 //----to get auth admin data from localstorage token----
 if(token){ 
   setAuthHeader(token); //---for sending token with every request by axios
