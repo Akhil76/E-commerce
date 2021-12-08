@@ -20,8 +20,7 @@ function Cart() {
         dispatch(customerlogin());
         dispatch(cartItem(customerid));
     }, [cartItem(customerid)]);
-    let current_time = new Date().getTime()/1000;
-    console.log(current_time);
+    
 
     return (
         <div className="client_page">
@@ -29,7 +28,7 @@ function Cart() {
                 signed_in ?
                     <div>
                         <Typography variant="h6">Your cart:</Typography>
-                        <p>{current_time}</p>
+                        
                         {
                             cart.map((item) =>
                                 <div>
