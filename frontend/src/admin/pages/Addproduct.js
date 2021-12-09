@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Typography} from "@material-ui/core";
+import {Button,Paper, Typography} from "@material-ui/core";
 import {connect} from "react-redux";
 import {mainCatagory,subcatagory,subcatagorytwo} from "../../statemanager/actions/catagorySelect";
 import {addproduct} from "../../statemanager/actions/product";
@@ -113,111 +113,112 @@ class Addproduct extends React.Component{
             
         return(
             <div>
-                <Typography variant="h5">Add Product</Typography>
-               
-                <form onSubmit={this.submitHandler} >
+                <Paper style={{padding:"20px"}}>
+                    <Typography 
+                    variant="h5"
+                    style={{background:"#82b1ff",padding:"10px"}}
+                    align="center"
+                    >Add Product</Typography>
+                    <form onSubmit={this.submitHandler} >
+                        <div>
+                            <Typography>Product Name : </Typography>
+                            <input
+                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
+                            className=""
+                            type="text"
+                            placeholder="Product Name"
+                            Name="ProductName"
+                            id="ProductName"
+                            value={ProductName}
+                            onChange={this.changeHandler}
+                            />
+                        </div>
+                        <div>
+                            <Typography>Choose a catagory : </Typography>
+                            <select id="catagory" name="catagoryId" value={catagoryId} onChange={this.changeHandler}>
+                                <option value="">Select one</option>
+                                {catagories.map(item=><option value={item._id}>{item.CatagoryName}</option>)}
+                            </select>
+                        </div>
+                    {subcatagories.length!==0 && 
                     <div>
-                        <label>Product Name : </label>
-                        <input 
-                        className=""
-                        type="text"
-                        placeholder="Product Name"
-                        Name="ProductName"
-                        id="ProductName"
-                        value={ProductName}
-                        onChange={this.changeHandler}
-
-                        />
-                    </div>
-                    <div>
-                        <label for="products">Choose a catagory : </label>
-                        <select id="catagory" name="catagoryId" value={catagoryId} onChange={this.changeHandler}>
-                            <option value="">Select one</option>
-                            {catagories.map(item=><option value={item._id}>{item.CatagoryName}</option>)}
-                        </select>
-                    </div>
-                   {subcatagories.length!==0 && 
-                   <div>
-                        <label for="products">Choose a catagory : </label>
-                        <select id="subcatagory" name="subcatagoryId" value={subcatagoryId} onChange={this.changeHandler}>
-                            <option value="">Select one</option>
-                            {subcatagories.map(item=><option value={item._id}>{item.SubcatagoryName}</option>)}
-                        </select>
-                    </div>}
-                    {subcattwo.length!==0 &&
-                    <div>
-                        <label for="products">Choose a catagory : </label>
-                        <select id="subcatagorytwo" name="subcatagorytwoId" value={subcatagorytwoId} onChange={this.changeHandler}>
-                            <option value="">Select one</option>
-                            {subcattwo.map(item=><option value={item._id}>{item.Subcatagory_twoName}</option>)}
-                        </select>
-                    </div>}
-                    
-                    <div>
-                        <label>Quantity : </label>
-                        <input 
-                        className=""
-                        type="number"
-                        placeholder="0"
-                        Name="Quantity"
-                        id="Quantity"
-                        value={Quantity}
-                        onChange={this.changeHandler}
-                        />
-                    </div>
-                    
-                    <div>
-                        <label>Price : </label>
-                        <input 
-                        className=""
-                        type="number"
-                        placeholder="0"
-                        Name="Price"
-                        id="Price"
-                        value={Price}
-                        onChange={this.changeHandler}
-                        />
-                    </div>
-                    <div>
-                        <label>Description : </label>
-                        <textarea 
-                        className="T_area"
-                        type="text"
-                        placeholder="Write a detailed description of the product."
-                        Name="Description"
-                        id="Description"
-                        value={Description}
-                        onChange={this.changeHandler}
-                        />
-                    </div>
-                    <div>
-                        <label>Upload a product image : </label>
-                        <input 
-                        className=""
-                        type="file"
-                        name="ProductImg"
-                        onChange={this.onChangeFile}
-                        />
-                    </div>
-                    <Button 
-                    variant="contained" 
-                    color="primary" 
-                    type="submit"
-                    >
-                    Add product</Button>
-                    
-                </form>
-                <div>
-                    <p>{ProductName}</p>
-                    <p>{catagoryId}</p>
-                    <p>{subcatagoryId}</p>
-                    <p>{subcatagorytwoId}</p>
-                    <p>{Quantity}</p>
-                    <p>{Price}</p>
-                    <p>{Description}</p>
+                            <Typography>Choose a sub catagory : </Typography>
+                            <select id="subcatagory" name="subcatagoryId" value={subcatagoryId} onChange={this.changeHandler}>
+                                <option value="">Select one</option>
+                                {subcatagories.map(item=><option value={item._id}>{item.SubcatagoryName}</option>)}
+                            </select>
+                        </div>}
+                        {subcattwo.length!==0 &&
+                        <div>
+                            <Typography>Choose a child catagory : </Typography>
+                            <select id="subcatagorytwo" name="subcatagorytwoId" value={subcatagorytwoId} onChange={this.changeHandler}>
+                                <option value="">Select one</option>
+                                {subcattwo.map(item=><option value={item._id}>{item.Subcatagory_twoName}</option>)}
+                            </select>
+                        </div>}
+                        
+                        <div>
+                            <Typography>Quantity : </Typography>
+                            <input
+                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}} 
+                            className=""
+                            type="number"
+                            placeholder="0"
+                            Name="Quantity"
+                            id="Quantity"
+                            value={Quantity}
+                            onChange={this.changeHandler}
+                            />
+                        </div>
+                        <div>
+                            <Typography>Price : </Typography>
+                            <input
+                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
+                            className=""
+                            type="number"
+                            placeholder="0"
+                            Name="Price"
+                            id="Price"
+                            value={Price}
+                            onChange={this.changeHandler}
+                            />
+                        </div>
+                        <div>
+                            <Typography>Description : </Typography>
+                            <textarea 
+                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
+                            className="T_area"
+                            type="text"
+                            placeholder="Write a detailed description of the product."
+                            Name="Description"
+                            id="Description"
+                            value={Description}
+                            onChange={this.changeHandler}
+                            />
+                        </div>
+                        <div>
+                            <Typography>Upload a product image : </Typography>
+                            <input
+                            style={{borderRadius:"5px",height:"30px",margin:"10px 0 10px 0"}} 
+                            className=""
+                            type="file"
+                            name="ProductImg"
+                            onChange={this.onChangeFile}
+                            />
+                            
+                        </div>
+                        
+                        <Button 
+                        variant="contained" 
+                        color="primary" 
+                        type="submit"
+                        >
+                        Add product</Button>
+                        
+                    </form>
                     <div className="imgPreview"><img src={imgpreview} alt=""/></div>
-                    
-                </div>
+                </Paper>
+               
             </div> 
         )
     }

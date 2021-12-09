@@ -47,6 +47,7 @@ const customerRegistration = asynchandler(async(req,res)=>{
                     Address:Address,
                     Password:hashedpassword,
             });
+            console.log(addCustomer);
             await addCustomer.save();
             res.status(200).json({
                     message:"Account is created successfully."

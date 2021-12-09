@@ -20,22 +20,23 @@ const useStyles = makeStyles((theme) => ({
     title:{
         color:"white",
         // padding:"30px",
-       
     } ,
     title_link:{
         textDecoration:"none"
     },
     cart:{
+       marginLeft:"auto",
+       display:"table"
        
     },
     btnlink:{
-        textDecoration:"none"
+        textDecoration:"none",
+       
     },
     btn:{
         textTransform:"none",
         color: "white",
-        border: "1px solid wheat",
-        
+        border: "1px solid wheat",   
     },
     
   }));

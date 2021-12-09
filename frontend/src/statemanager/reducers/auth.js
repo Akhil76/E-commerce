@@ -1,4 +1,4 @@
-import {LOGIN, LOGIN_ERROR} from '../action_type/constants';
+import {LOGIN,LOGIN_ERROR} from '../action_type/constants';
 
 
 const initialState ={

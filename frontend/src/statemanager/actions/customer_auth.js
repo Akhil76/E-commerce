@@ -1,9 +1,23 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {CUSTOMER_LOGIN, CUSTOMER_LOGIN_ERROR} from '../action_type/constants';
+import {CUSTOMER_LOGIN, CUSTOMER_LOGIN_ERROR, CUSTOMER_SIGNUP} from '../action_type/constants';
 import setAuthHeader from '../../utils/setAuthHeader';
 
 
+export const customerRegistration=(customerInfo)=>(dispatch)=>{
+    axios.post('/addcustomer',customerInfo)
+    .then(Response =>{
+        dispatch({
+            type:CUSTOMER_SIGNUP,
+            payload: {
+                customerInfo: Response.data
+            }
+        })
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+};
 
 export const customerlogin =(customerdata,history)=>dispatch=>{
     axios.post('/customerlogin',customerdata)
