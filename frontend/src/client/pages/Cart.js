@@ -16,10 +16,10 @@ function Cart() {
     const cart = useSelector((state) => state.cart.items);
     const [customerid, setCustomerid] = useState(customer.Id);
 
-    useEffect(() => {
+    useEffect(() =>{
         dispatch(customerlogin());
         dispatch(cartItem(customerid));
-    }, [cartItem(customerid)]);
+    }, []);
     
 
     return (

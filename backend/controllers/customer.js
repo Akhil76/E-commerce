@@ -16,7 +16,7 @@ const customerRegistration = asynchandler(async(req,res)=>{
         Email,
         Address,
         Password,
-        ComfirmPassword} = req.body;
+        ConfirmPassword} = req.body;
         
        const validate = Registrationvalidator({FirstName,
                                                 LastName,
@@ -25,7 +25,7 @@ const customerRegistration = asynchandler(async(req,res)=>{
                                                 Email,
                                                 Address,
                                                 Password,
-                                                ComfirmPassword});
+                                                ConfirmPassword});
        
        if(!validate.isValid){
            res.status(400).json(validate.error)
@@ -33,7 +33,7 @@ const customerRegistration = asynchandler(async(req,res)=>{
           const email = await customerModel.findOne({Email});
           if(email){
              return res.status(400).json({
-                  Message:'Email alreay exists!'
+                  Email:'Email alreay exists!'
               })
             }
             const hashedpassword = await bcrypt.hash(Password,10);
@@ -47,10 +47,10 @@ const customerRegistration = asynchandler(async(req,res)=>{
                     Address:Address,
                     Password:hashedpassword,
             });
-            console.log(addCustomer);
+            
             await addCustomer.save();
             res.status(200).json({
-                    message:"Account is created successfully."
+                message:"Account is created successfully."
             });
             
             }

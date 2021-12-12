@@ -1,3 +1,4 @@
+export const SUCCESS_MSG = 'SUCCESS_MSG';
 export const FETCH_CATAGORY = 'FETCH_CATAGORY';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT';
@@ -16,6 +17,7 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 
 //-------Customer login-----------------------------
 export const CUSTOMER_SIGNUP = 'CUSTOMER_SIGNUP';
+export const CUSTOMER_ERROR = 'CUSTOMER_ERROR';
 export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';
 export const CUSTOMER_LOGIN_ERROR = 'CUSTOMER_LOGIN_ERROR';
 

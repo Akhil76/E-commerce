@@ -22,7 +22,7 @@ export const login =(admindata,history)=>dispatch=>{
         dispatch({
             type:LOGIN_ERROR,
             payload:{
-                error: error.response.data
+                error:error.response.data
             }
         })
     })

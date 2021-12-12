@@ -37,10 +37,10 @@ const validate = customer =>{
         error.Password = 'Password must be six character or logner.'
     }
 
-    if(!customer.ComfirmPassword){
-        error.ComfirmPassword = 'Please,enter a comfirmation Password.'
-    }else if(customer.Password!==customer.ComfirmPassword){
-        error.ComfirmPassword = 'Password doesn\'t match.'
+    if(!customer.ConfirmPassword){
+        error.ConfirmPassword = 'Please,enter a comfirmation Password.'
+    }else if(customer.Password!==customer.ConfirmPassword){
+        error.ConfirmPassword = 'Password doesn\'t match.'
     }
 
     return{

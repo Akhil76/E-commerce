@@ -14,7 +14,7 @@ function ImageSlider(){
   
     useEffect(()=>{
         dispatch(displaySliderClient());
-    },[displaySliderClient()]);
+    },[]);
     return(
         <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
             {

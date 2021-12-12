@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Paper, Button, TextField,Typography} from '@material-ui/core';
-import {useDispatch} from 'react-redux';
-import {customerRegistration} from '../../statemanager/actions/customer_auth';
+import { useHistory } from "react-router-dom";
+import {useDispatch,useSelector} from 'react-redux';
+import {customerRegistration} from '../../statemanager/actions/customer';
 
 
 function Signup() {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const error = useSelector((state)=>state.customer.error);
+    const message = useSelector((state)=>state.customer.message);
+
     const [customerInfo, setCustomerInfo] = useState({
         FirstName: "",
         LastName: "",
@@ -14,23 +19,14 @@ function Signup() {
         Email: "",
         Address: "",
         Password: "",
-        ComfirmPassword:"",
-        error:{}
+        ConfirmPassword:"",
+        
     });
 
     const submithandler=(e)=>{
         e.preventDefault();
-        dispatch(customerRegistration(customerInfo));
-        setCustomerInfo({
-            FirstName: "",
-            LastName: "",
-            UserName: "",
-            Phone: "",
-            Email: "",
-            Address: "",
-            Password: "",
-            ComfirmPassword: ""
-        });
+        dispatch(customerRegistration(customerInfo,history));
+        
     }
 
     return (
@@ -42,18 +38,17 @@ function Signup() {
                     marginRight: "auto",
                     width: "50%",
                     marginTop: "20px",
+                    marginBottom:"20px",
                     padding: "20px"
                 }}
             >
-                <div>
-                <Typography>{customerInfo.FirstName}</Typography>
-                <Typography>{customerInfo.LastName}</Typography>
-                <Typography>{customerInfo.ConfirmPassword}</Typography>
-                </div>
                 <Typography variant="h6" color="primary">Sign up here</Typography>
+                <Typography>{message.message}</Typography>
                 <form onSubmit={submithandler}>
                     <TextField
                         fullWidth
+                        error={error.FirstName}
+                        helperText={error.FirstName}
                         style={{ marginRight: "20px", margin: "20px 0 20px 0" }}
                         label="First Name"
                         variant="outlined"
@@ -62,6 +57,8 @@ function Signup() {
                     />
                     <TextField
                         fullWidth
+                        error={error.LastName}
+                        helperText={error.LastName}
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="Last Name"
                         variant="outlined"
@@ -70,6 +67,8 @@ function Signup() {
                     />
                     <TextField
                         fullWidth
+                        error={error.UserName}
+                        helperText={error.UserName}
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="User Name"
                         variant="outlined"
@@ -78,6 +77,9 @@ function Signup() {
                     />
                     <TextField
                         fullWidth
+                        error={error.Phone}
+                        helperText={error.Phone}
+                        type="number"
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="Phone"
                         variant="outlined"
@@ -86,14 +88,18 @@ function Signup() {
                     />
                     <TextField
                         fullWidth
+                        error={error.Email}
+                        helperText={error.Email}
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="Email"
-                        variant="outlined"
+                        variant="outlined" 
                         value={customerInfo.Email}
                         onChange={(e) => setCustomerInfo({ ...customerInfo, Email: e.target.value })}
                     />
                     <TextField
                         fullWidth
+                        error={error.Address}
+                        helperText={error.Address}
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="Address"
                         variant="outlined"
@@ -102,6 +108,8 @@ function Signup() {
                     />
                     <TextField
                         fullWidth
+                        error={error.Password}
+                        helperText={error.Password}
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         label="Password"
                         variant="outlined"
@@ -111,6 +119,8 @@ function Signup() {
                     <TextField
                         style={{ marginRight: "20px", marginBottom: "20px" }}
                         fullWidth
+                        error={error.ConfirmPassword}
+                        helperText={error.ConfirmPassword}
                         label="Confirm Password"
                         variant="outlined"
                         value={customerInfo.ConfirmPassword}
@@ -120,7 +130,7 @@ function Signup() {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        style={{ textTransform: "none" }}
+                        style={{ textTransform: "none" ,marginLeft:"auto"}}
                     >Sign up</Button>
                 </form>
             </Paper>
