@@ -1,7 +1,8 @@
-import { ADD_PRODUCT, FETCH_ALL_PRODUCT,EDIT_PRODUCT_DISPLAY} from "../action_type/constants";
+import { ADD_PRODUCT,FETCH_ALL_PRODUCT,EDIT_PRODUCT_DISPLAY} from "../action_type/constants";
 
 const initialstate = {
-    items:[]
+    items:[],
+    loading:true
 }
 
 const productsReducer = (state=initialstate,action)=>{
@@ -9,11 +10,12 @@ const productsReducer = (state=initialstate,action)=>{
         case ADD_PRODUCT:
             return{...state,
                 addproduct: action.payload
-            } 
+            }    
         case FETCH_ALL_PRODUCT:
             return {
                 ...state,
-                items:action.payload.products
+                items:action.payload.products,
+                loading:false  
             }
         case EDIT_PRODUCT_DISPLAY:
             return {
