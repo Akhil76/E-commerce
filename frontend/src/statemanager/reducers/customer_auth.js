@@ -14,12 +14,13 @@ const customer_authReducer = (state=initialState,action) =>{
         case CUSTOMER_LOGIN:
             return{
                 customer:action.payload.customer,
-                isAuthenticated : Object.keys(action.payload.customer).length!==0,  
+                isAuthenticated : Object.keys(action.payload.customer).length!==0,
+                error:{}  
             }    
         case CUSTOMER_LOGIN_ERROR:
             return{
                 ...state,
-                error:action.payload
+                error:action.payload.error
             }    
         default :
             return state    

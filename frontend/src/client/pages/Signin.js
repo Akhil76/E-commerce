@@ -35,9 +35,12 @@ class Signin extends React.Component{
             Password:this.state.Password
         },this.props.history);
     }
-
+    componentDidMount(){
+        customerlogin()
+    }
     render(){
         const {UserName,Password} = this.state;
+        const {error} = this.props;
         return(
             <div className="client_page">
                 <Grid container>
@@ -48,6 +51,7 @@ class Signin extends React.Component{
                     width:"26%",
                     marginTop:"100px"
                     }}>
+                      <Typography color="error">{error.error}</Typography>
                       <Typography style={customStyles.title} variant="h6" align="center">Sign in</Typography>
                       <form onSubmit={this.submitHandler}>
                           <div style={{marginBottom:"20px"}}>
@@ -94,7 +98,9 @@ class Signin extends React.Component{
     }
 }
 
+const mapStateToProps = state => ({
+    error: state.customer_auth.error,
+  });
 
 
-
-export default connect(null,{customerlogin})(Signin);
+export default connect(mapStateToProps,{customerlogin})(Signin);

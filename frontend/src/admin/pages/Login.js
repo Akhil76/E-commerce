@@ -35,10 +35,13 @@ class Login extends React.Component{
        
     }
    
+    componentDidMount(){
+        login()
+    }
 
     render(){
         const {Username,Password} = this.state;
-        
+        const {error} = this.props;
         return(
         
             <div className="client_page">
@@ -51,6 +54,7 @@ class Login extends React.Component{
                     marginTop:"200px",
                     marginBottom:"200px"
                     }}>
+                      <Typography color="error">{error.error}</Typography>
                       <Typography 
                       style={customStyles.title} 
                       variant="h6" 
@@ -93,6 +97,8 @@ class Login extends React.Component{
     }
 }
 
+const mapStateToProps = state => ({
+    error:state.auth.error,
+  });
 
-
-export default connect(null,{login}) (Login);
+export default connect(mapStateToProps,{login}) (Login);

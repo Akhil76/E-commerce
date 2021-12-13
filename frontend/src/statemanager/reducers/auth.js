@@ -15,6 +15,7 @@ const authReducer = (state=initialState,action) =>{
             return{
                 admin:action.payload.admin,
                 isAuthenticated : Object.keys(action.payload.admin).length!==0, 
+                error:{}
             }    
         case LOGIN_ERROR:
             return{

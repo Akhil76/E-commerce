@@ -1,5 +1,5 @@
 import React from "react";
-import {Button,Paper, Typography} from "@material-ui/core";
+import {Button,Paper,TextField, Typography} from "@material-ui/core";
 import {connect} from "react-redux";
 import {mainCatagory,subcatagory,subcatagorytwo} from "../../statemanager/actions/catagorySelect";
 import {addproduct} from "../../statemanager/actions/product";
@@ -121,9 +121,10 @@ class Addproduct extends React.Component{
                     >Add Product</Typography>
                     <form onSubmit={this.submitHandler} >
                         <div>
-                            <Typography>Product Name : </Typography>
-                            <input
-                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
+                            <Typography variant="h6">Product Name : </Typography>
+                            <TextField
+                            fullWidth
+                            variant="outlined"
                             className=""
                             type="text"
                             placeholder="Product Name"
@@ -134,7 +135,7 @@ class Addproduct extends React.Component{
                             />
                         </div>
                         <div>
-                            <Typography>Choose a catagory : </Typography>
+                            <Typography variant="h6">Choose a catagory : </Typography>
                             <select id="catagory" name="catagoryId" value={catagoryId} onChange={this.changeHandler}>
                                 <option value="">Select one</option>
                                 {catagories.map(item=><option value={item._id}>{item.CatagoryName}</option>)}
@@ -142,7 +143,7 @@ class Addproduct extends React.Component{
                         </div>
                     {subcatagories.length!==0 && 
                     <div>
-                            <Typography>Choose a sub catagory : </Typography>
+                            <Typography variant="h6">Choose a sub catagory : </Typography>
                             <select id="subcatagory" name="subcatagoryId" value={subcatagoryId} onChange={this.changeHandler}>
                                 <option value="">Select one</option>
                                 {subcatagories.map(item=><option value={item._id}>{item.SubcatagoryName}</option>)}
@@ -150,7 +151,7 @@ class Addproduct extends React.Component{
                         </div>}
                         {subcattwo.length!==0 &&
                         <div>
-                            <Typography>Choose a child catagory : </Typography>
+                            <Typography variant="h6">Choose a child catagory : </Typography>
                             <select id="subcatagorytwo" name="subcatagorytwoId" value={subcatagorytwoId} onChange={this.changeHandler}>
                                 <option value="">Select one</option>
                                 {subcattwo.map(item=><option value={item._id}>{item.Subcatagory_twoName}</option>)}
@@ -158,9 +159,10 @@ class Addproduct extends React.Component{
                         </div>}
                         
                         <div>
-                            <Typography>Quantity : </Typography>
-                            <input
-                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}} 
+                            <Typography variant="h6">Quantity : </Typography>
+                            <TextField
+                            fullWidth
+                            variant="outlined"
                             className=""
                             type="number"
                             placeholder="0"
@@ -171,9 +173,10 @@ class Addproduct extends React.Component{
                             />
                         </div>
                         <div>
-                            <Typography>Price : </Typography>
-                            <input
-                            style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
+                            <Typography variant="h6">Price : </Typography>
+                            <TextField
+                            fullWidth
+                            variant="outlined"
                             className=""
                             type="number"
                             placeholder="0"
@@ -184,7 +187,7 @@ class Addproduct extends React.Component{
                             />
                         </div>
                         <div>
-                            <Typography>Description : </Typography>
+                            <Typography variant="h6">Description : </Typography>
                             <textarea 
                             style={{width:"100%",margin: "10px 0px",padding: "10px",borderRadius: "5px"}}
                             className="T_area"
@@ -197,7 +200,7 @@ class Addproduct extends React.Component{
                             />
                         </div>
                         <div>
-                            <Typography>Upload a product image : </Typography>
+                            <Typography variant="h6">Upload a product image : </Typography>
                             <input
                             style={{borderRadius:"5px",height:"30px",margin:"10px 0 10px 0"}} 
                             className=""

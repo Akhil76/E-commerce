@@ -24,7 +24,7 @@ export const customerlogin =(customerdata,history)=>dispatch=>{
         dispatch({
             type:CUSTOMER_LOGIN_ERROR,
             payload:{
-                error: error.res
+                error:error.response.data
             }
         })
     })

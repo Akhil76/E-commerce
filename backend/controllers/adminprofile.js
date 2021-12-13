@@ -57,12 +57,12 @@ const login = asynchandler(async(req,res)=>{
             });
             }else{ 
             res.status(401).json({
-                "error": "Password does not match!"
+                "error": "Username or password does not match!"
             });
         }
         }else{
             res.status(401).json({
-                "error": "Username does not match!"
+                "error": "Username or password does not match!"
             });
         }
 

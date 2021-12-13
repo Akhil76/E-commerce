@@ -1,8 +1,7 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState} from 'react';
 import { Typography, Toolbar, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {addtoCart} from '../../statemanager/actions/cart';
-import {customerlogin} from '../../statemanager/actions/customer_auth';
 import { useDispatch,useSelector } from "react-redux";
 
 
@@ -27,9 +26,6 @@ function DetailComponent(props) {
     const customer = useSelector((state)=>state.customer_auth.customer);
     const signed = useSelector((state)=>state.customer_auth.isAuthenticated);
 
-    useEffect(()=>{
-        dispatch(customerlogin());
-      },[]);
 
     const [product,setProduct] = useState({
         ProductId:props.id,

@@ -1,11 +1,11 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { Button, Container, Grid,Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Search from '../Search';
 import { useDispatch, useSelector } from 'react-redux';
-import {customerlogin,customerlogout } from '../../../statemanager/actions/customer_auth';
+import {customerlogout } from '../../../statemanager/actions/customer_auth';
 import { useHistory } from 'react-router';
 
 
@@ -47,10 +47,6 @@ function Header(){
     const dispatch = useDispatch();
     const Authenticated = useSelector((state) => state.customer_auth.isAuthenticated);
     
-
-    useEffect(() => {
-        dispatch(customerlogin());
-    }, []);
 
     return(
         <div className={classes.root}>

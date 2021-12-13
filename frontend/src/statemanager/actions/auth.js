@@ -13,7 +13,8 @@ export const login =(admindata,history)=>dispatch=>{
         dispatch({
             type:LOGIN,
             payload:{
-                admin:decode
+                admin:decode,
+                
             }
         })
         history.push('/admin');

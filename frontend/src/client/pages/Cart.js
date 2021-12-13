@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Paper, Typography, Button } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { customerlogin } from '../../statemanager/actions/customer_auth';
 import { cartItem } from '../../statemanager/actions/cart';
 import Cartitem from '../components/Cartitem';
 
@@ -16,8 +15,10 @@ function Cart() {
     const cart = useSelector((state) => state.cart.items);
     const [customerid, setCustomerid] = useState(customer.Id);
 
+
+
+
     useEffect(() =>{
-        dispatch(customerlogin());
         dispatch(cartItem(customerid));
     }, []);
     
@@ -27,7 +28,7 @@ function Cart() {
             {
                 signed_in ?
                     <div>
-                        <Typography variant="h6">Your cart:</Typography>
+                        <Typography style={{background:"white",padding:"10px"}} variant="h6">Your cart:</Typography>
                         
                         {
                             cart.map((item) =>
@@ -35,7 +36,7 @@ function Cart() {
                                     <Paper style={{ marginBottom: "5px", padding: "10px" }}>
                                         <Typography>Name: {item.UserName} {item.LastName}</Typography>
                                         <Typography>Email: {item.Email}</Typography>
-                                        <Typography>Your id: {item._id}</Typography>
+                                        <Typography>Phone: {item.Phone}</Typography>
                                         <Typography>Products in your cart : ({item.CartItems.length})</Typography>
                                     </Paper>
                                     <Grid direction="row" justifyContent="flex-start" container>

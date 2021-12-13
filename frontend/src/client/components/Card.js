@@ -3,7 +3,6 @@ import {Button, Divider, Grid,Toolbar,Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {NavLink} from 'react-router-dom';
 import {addtoCart} from '../../statemanager/actions/cart';
-import {customerlogin} from '../../statemanager/actions/customer_auth';
 import { useDispatch,useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,10 +42,7 @@ function Card(props){
     const customer = useSelector((state)=>state.customer_auth.customer);
     const signed = useSelector((state)=>state.customer_auth.isAuthenticated);
 
-    useEffect(()=>{
-        dispatch(customerlogin());
-      },[]);
-
+    
     const [product,setProduct] = useState({
         ProductId:props.id,
         ProductName:props.ProductName,

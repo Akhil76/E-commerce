@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles,Grid,Paper,Toolbar,Typography, Button } from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
-import { customerlogin } from '../../statemanager/actions/customer_auth';
 import { delCartItem } from '../../statemanager/actions/cart';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,17 +26,13 @@ function Cartitem(props){
     const dispatch =useDispatch();
     const customer = useSelector((state) => state.customer_auth.customer);
 
-    useEffect(() => {
-        dispatch(customerlogin());
-    }, []);
+
     const [id,setId] = useState(customer.Id);
     const [product,setProduct] = useState({
         itemid:props.itemid,
         ProductId:props.ProductId
     });
-    // const clickhandler =()=>{
-    //     dispatch(delCartItem(id,itemid));
-    // }
+    
     return (
         <Grid className={classes.product_area} item xs={12} sm={12} md={12}>
             <Paper>
