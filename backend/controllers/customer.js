@@ -61,7 +61,30 @@ const customerRegistration = asynchandler(async(req,res)=>{
        }
 });
 
+//----------All customer info--------------
+const allcustomer = asynchandler(async(req,res)=>{
+    try{
+        const data = await customerModel.find()
+        // res.status(200).json({
+        //     result:data
+        // });
+        .exec((err,data)=>{
+            if(err){
+                res.status(500).json({
+                    err: "There is a server side error!"
+                });
+            }else{
+                res.send(data)
+            }
+        })  
 
+    }catch{
+        res.status(401).json({
+            "error": "Server error occurred!"
+        });
+    }
+})
+//----------end----------------------------
 //--------customer login -------------
 const customerlogin = asynchandler(async(req,res)=>{
 
@@ -174,4 +197,4 @@ const delcartItem = asynchandler(async(req,res)=>{
 
 })
 
-module.exports = {customerRegistration,customerlogin,addToCart,cartItemDisplay,delcartItem};
+module.exports = {customerRegistration,allcustomer,customerlogin,addToCart,cartItemDisplay,delcartItem};

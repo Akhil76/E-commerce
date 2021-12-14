@@ -1,16 +1,22 @@
-import { CUSTOMER_SIGNUP,CUSTOMER_ERROR,SUCCESS_MSG } from '../action_type/constants';
+import { CUSTOMER_SIGNUP,CUSTOMER_ERROR,SUCCESS_MSG, ALL_CUSTOMER } from '../action_type/constants';
 
 
 const initialState = {
     items: [],
     error:{},
-    message:{}
+    message:{},
+    
 }
 
 
 
 const customer_Reducer = (state=initialState, action) => {
     switch (action.type) {
+        case ALL_CUSTOMER:
+            return{
+                ...state,
+                items:action.payload.customers
+            }
         case CUSTOMER_SIGNUP:
             return {
                 ...state,

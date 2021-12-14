@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {CUSTOMER_SIGNUP,CUSTOMER_ERROR} from '../action_type/constants';
+import {CUSTOMER_SIGNUP,CUSTOMER_ERROR, ALL_CUSTOMER} from '../action_type/constants';
 
 
 
@@ -25,3 +25,18 @@ export const customerRegistration=(customerInfo,history)=>(dispatch)=>{
         })
     })
 };
+
+export const allcustomer = ()=>(dispatch)=>{
+    axios.get('/admin/customers')
+    .then(Response =>{
+        dispatch({
+            type:ALL_CUSTOMER,
+            payload: {
+                customers:Response.data
+            }
+        })
+    })
+    .catch(error=>{
+        console.log(error)
+    })
+}

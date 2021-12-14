@@ -14,8 +14,8 @@ export const SUBCATAGORY_TWO_SELECT = 'SUBCATAGORY_TWO_SELECT';
 //------Admin login---------------------------------
 export const LOGIN = 'LOGIN';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
-
 //-------Customer login-----------------------------
+export const ALL_CUSTOMER = 'ALL_CUSTOMER';
 export const CUSTOMER_SIGNUP = 'CUSTOMER_SIGNUP';
 export const CUSTOMER_ERROR = 'CUSTOMER_ERROR';
 export const CUSTOMER_LOGIN = 'CUSTOMER_LOGIN';

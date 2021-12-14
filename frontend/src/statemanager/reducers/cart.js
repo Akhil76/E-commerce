@@ -1,7 +1,8 @@
 import { ADD_TO_CART, CART_ITEM,DEL_CART_ITEM } from "../action_type/constants";
 
 const initialstate = {
-    items: []
+    items: [],
+    loading:true
 }
 
 const cartItemReducer = (state = initialstate, action) => {
@@ -16,7 +17,8 @@ const cartItemReducer = (state = initialstate, action) => {
         case CART_ITEM:
             return {
                 ...state,
-                items: action.payload.cartitems
+                items: action.payload.cartitems,
+                loading:false
             }
         case DEL_CART_ITEM:
             return {

@@ -15,6 +15,7 @@ const {addProduct,editproduct,delproduct,allproducts} = require('../controllers/
 const {mainCatagory,subcatagory,subcatagoryTwo} = require('../controllers/catagorySelect');
 const {adminprofile,login} = require('../controllers/adminprofile');
 const {addingslider,displayslider,editslider,delslider} = require('../controllers/ImgSlider');
+const {allcustomer} = require('../controllers/customer');
 const upload = require('../middlewares/upload');
 const authenticated = require('../middlewares/authenticated');
 
@@ -34,8 +35,8 @@ router.delete('/deletechildcategory/:id',authenticated,deleteChildCategory);
 router.get('/maincatagory',authenticated,mainCatagory);
 router.get('/subcatagory/:catagoryId',authenticated,subcatagory);
 router.get('/subcatagorytwo/:subcatagoryId',authenticated,subcatagoryTwo);
-//------------------------------------------------------------------
-
+//-----Cutomer in admin panel ---------------------------------
+router.get('/customers',allcustomer);
 //---------Displaying all categories in Setting panel---------------
 router.get('/displaycatagories',authenticated,displaycatagory);
 //------------------------------------------------------------------

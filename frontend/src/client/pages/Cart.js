@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Paper, Typography, Button } from '@material-ui/core';
+import { Grid,Box,Paper, Typography, Button } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartItem } from '../../statemanager/actions/cart';
@@ -13,6 +14,7 @@ function Cart() {
     const customer = useSelector((state) => state.customer_auth.customer);
     const signed_in = useSelector((state) => state.customer_auth.isAuthenticated);
     const cart = useSelector((state) => state.cart.items);
+    const loading = useSelector((state) => state.cart.loading);
     const [customerid, setCustomerid] = useState(customer.Id);
 
 
@@ -28,6 +30,19 @@ function Cart() {
             {
                 signed_in ?
                     <div>
+                        {
+                        loading?
+                        <Box style={{
+                            display:"block",
+                            marginLeft: "auto",
+                            marginRight:"auto",
+                            width:"5%",
+                            marginTop:"300px"
+                            }}>
+                            <CircularProgress />
+                        </Box>
+                        :null
+                        }
                         <Typography style={{background:"white",padding:"10px"}} variant="h6">Your cart:</Typography>
                         
                         {

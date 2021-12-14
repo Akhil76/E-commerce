@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoryList from '../components/CategoryList';
 import SliderSetting from '../components/SliderSetting';
+import Customer from '../components/Customer';
 
 
 function Setting(){
@@ -9,6 +10,7 @@ function Setting(){
 		<div>
 			<CategoryList/>
 			<SliderSetting/>
+			<Customer/>
 		</div>
 	)
 }
