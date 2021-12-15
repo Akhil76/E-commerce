@@ -16,7 +16,9 @@ function ImageSlider(){
         dispatch(displaySliderClient());
     },[]);
     return(
-        <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
+        <>
+        {sliders.length>0? // I have used "length > 0?" because autoplay wasn't working.
+        <Carousel autoPlay infiniteLoop showThumbs={false} interval={2000}>
             {
             sliders.map((item)=>(
             <div>
@@ -25,7 +27,9 @@ function ImageSlider(){
             </div>
                 ))
             }
-        </Carousel>
+        </Carousel>:null
+        }
+        </>
     )
 }
 

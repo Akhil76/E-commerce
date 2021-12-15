@@ -15,7 +15,7 @@ export default function ProductTable() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const customers = useSelector((state)=>state.customer.items);
-
+  
   useEffect(()=>{
     dispatch(allcustomer());
 },[]);

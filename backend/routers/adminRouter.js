@@ -36,7 +36,7 @@ router.get('/maincatagory',authenticated,mainCatagory);
 router.get('/subcatagory/:catagoryId',authenticated,subcatagory);
 router.get('/subcatagorytwo/:subcatagoryId',authenticated,subcatagoryTwo);
 //-----Cutomer in admin panel ---------------------------------
-router.get('/customers',allcustomer);
+router.get('/customers',authenticated,allcustomer);
 //---------Displaying all categories in Setting panel---------------
 router.get('/displaycatagories',authenticated,displaycatagory);
 //------------------------------------------------------------------

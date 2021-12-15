@@ -12,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
         
     },
     link:{
-        textDecoration:"none",
-        
+        textDecoration:"none",    
         
     },
     title:{

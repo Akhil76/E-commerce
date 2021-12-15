@@ -65,18 +65,16 @@ const customerRegistration = asynchandler(async(req,res)=>{
 const allcustomer = asynchandler(async(req,res)=>{
     try{
         const data = await customerModel.find()
-        // res.status(200).json({
-        //     result:data
-        // });
-        .exec((err,data)=>{
-            if(err){
-                res.status(500).json({
-                    err: "There is a server side error!"
-                });
-            }else{
-                res.send(data)
-            }
-        })  
+        res.status(200).json(data);
+        // .exec((err,data)=>{
+        //     if(err){
+        //         res.status(500).json({
+        //             err: "There is a server side error!"
+        //         });
+        //     }else{
+        //         res.send(data)
+        //     }
+        // })  
 
     }catch{
         res.status(401).json({
