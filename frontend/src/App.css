@@ -6,63 +6,162 @@
   min-height:500px;
 }
 
-.my_nav ul{
-  list-style: none;
-  display: inline-flex;
+/* ------------------DropDwon Navigation------------------- */
+.navbar{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  height: 50px;
+ 
 }
 
-.my_nav ul li{
-  font-weight:inherit;
-  margin-right:5px;
-  width:100px;
-  padding:5px;
-
+.nav ul{
+	display:inline-flex;
+	list-style:none;
+	
 }
 
-.my_nav ul li a{
-  text-decoration: none;
-  color:aliceblue;
-}
-.my_nav ul li:hover{
-  background:tomato;
-  border-radius: 3px;
-  
+.nav ul li{
+	padding-left: 10px;
 }
 
-.sub_menu{
-  display: none;
+.nav ul li a{
+	color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+.nav ul li span{
+	color:white;
+	float:right;
+}
+.nav ul li a:hover{
+	background:white;
+	color:red;
+}
+.dropdown-1{
+	display:none;
+	margin-top:9px;
 }
 
-.my_nav ul li:hover .sub_menu{
-  display: block;
-  position: absolute;
-  background: #3f51b5;
-  margin-top: 5px;
-  
+.nav ul li:hover .dropdown-1{
+	display:block;
+	position:absolute;
+	background:#3E8DA8;
 }
 
-.my_nav ul li:hover .sub_menu ul{
-  display: block;
+.nav ul li:hover .dropdown-1 ul{
+	display:block;
 }
 
-.my_nav ul li:hover .sub_menu ul li{
-  margin:10px;
-  margin-right: 20px;
-  margin-left: -20px;
-  margin-top: 10px;
+.nav ul li:hover .dropdown-1 ul li{
+	line-height:50px;
+	min-width:100px;	
+	margin-left:-40px;
+	padding-right:30px;
+	border-bottom:1px solid white;
+}
+.nav ul li:hover .dropdown-1 ul li span{
+	margin-right:-20px;
+}
+.dropdown-2{
+	display:none;
 }
 
-.sub_menu2{
-  display: none;
-}
-.hover_me:hover .sub_menu2{
-  position: absolute;
-  display: block;
-  margin-top: -35px;
-  margin-left: 100px;
-  background: #3f51b5;
+.dropdown-1 ul li:hover .dropdown-2{
+	display:block;
+	position:absolute;
+	background:#3E8DA8;
+	margin-left:130.5px;
+	margin-top:-50px;
+	
 }
 
+.dropdown-1 ul li:hover .dropdown-2 ul li{
+	min-width:100px;
+	padding-right:30px;
+	margin-left:-80px;
+	border-bottom:1px solid white;
+}
+
+/* -------------General Navigation Css End---------------------- */
+
+
+@media screen and (max-width:700px){
+	/* nav{
+		
+	} */
+	.nav ul{
+		flex-direction:column;
+		background:#3E8DA8;
+		margin-top:50px;
+		min-width:230px;
+		border-top:1px solid white;
+		height:100vh;
+		
+	}
+	
+	.nav ul li{
+		line-height:50px;
+		margin-left:-40px;
+		border-bottom:1px solid white;
+	}
+	.nav ul li a{
+		margin-right:10px;
+	}
+	.nav ul li span{
+		color:white;
+		float:right;
+		margin-right:10px
+	}
+	.dropdown-1{
+		display:flex;
+		display:none;
+	}
+	.nav ul li:hover .dropdown-1{
+		display:initial;
+		position:initial;
+		
+	}
+	.nav ul li:hover .dropdown-1 ul{
+		height:inherit;
+		position:relative;
+		min-width:initial;
+		margin-top:-1px;		
+	}
+	.nav ul li:hover .dropdown-1 ul li{
+		padding-left:initial;
+		padding-right:initial;
+		margin-left:-20px;
+	}
+	.nav ul li:hover .dropdown-1 ul li span{
+		margin-right:initial;
+		margin-right:10px;
+	}
+	.dropdown-2{
+		display:flex;
+		display:none;
+		
+	}
+	.dropdown-1 ul li:hover .dropdown-2{
+		display:initial;
+		position:initial;
+		
+	}
+	/* .dropdown-1 ul li:hover .dropdown-2 ul{
+		
+		
+	}  */
+	.dropdown-1 ul li:hover .dropdown-2 ul li{
+		margin-left:-20px;
+		padding-left:initial;
+		padding-right:initial;
+	} 
+	
+}
+
+/* ------End Nav Css------- */
 .product_card{
   background: rgb(76, 78, 72);
   width:508px;
