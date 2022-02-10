@@ -1,6 +1,9 @@
 import React from 'react';
-import {AppBar} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {AppBar,Toolbar} from '@material-ui/core';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import { IconButton } from '@material-ui/core';
+import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone';
 import {connect} from 'react-redux';
 import {fetch_catagory} from '../../../statemanager/actions/catagory';
 import {NavLink} from 'react-router-dom';
@@ -22,17 +25,24 @@ class Navigation extends React.Component{
         const {catagories} = this.props;
         return(
             <AppBar className="navbar" position="sticky">
-            <div className="nav">
+                
+                
+               
+            <div className="nav" id="nav">
+                <input style={{display:"none"}} type="checkbox" className="check_box" id="check_box"/>
+                <label style={{color:"white"}} className="menuBtn"for="check_box">
+                    <i><MenuTwoToneIcon/></i>
+                </label>
                 <ul>
                 {catagories.map((item)=>
                     <li>
-                        <NavLink to={"/catagory/"+item._id}>{item.CatagoryName}</NavLink>{item.Subcatagory.length!==0 && <span>+</span>}
-                        <div class="dropdown-1">
+                        <NavLink to={"/catagory/"+item._id}>{item.CatagoryName}</NavLink>{item.Subcatagory.length!==0 && <span><ArrowDropDownIcon/></span>}
+                        <div className="dropdown-1">
 					        <ul>
                                 {
                                 item.Subcatagory.map((sub_item)=>
                                 <li>
-                                    <NavLink to={"/subcatagory/"+sub_item._id}>{sub_item.SubcatagoryName}</NavLink>{sub_item.Subcatagory_two.length!==0 && <span>+</span>}
+                                    <NavLink to={"/subcatagory/"+sub_item._id}>{sub_item.SubcatagoryName}</NavLink>{sub_item.Subcatagory_two.length!==0 && <span><ArrowRightIcon/></span>}
                                     <div className="dropdown-2">
                                         <ul>
                                             {
@@ -61,4 +71,4 @@ const mapStateToProps = state => ({
     catagories: state.catagory.items
   });
 
-export default connect(mapStateToProps,{fetch_catagory})(Navigation) ;
+export default connect(mapStateToProps,{fetch_catagory})(Navigation);

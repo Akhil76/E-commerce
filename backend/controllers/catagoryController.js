@@ -12,7 +12,9 @@ const addcatagory = asynchandler(async(req,res)=>{
         CatagoryName:CatagoryName
     })
        await addcatagory.save();
-       res.send("Data inserted");
+       res.json({
+           message:"One main category is added."
+       });
    }catch{
     res.status(200).json({
         message: "Server error occurred!"

@@ -124,6 +124,7 @@ class Addproduct extends React.Component{
                             <Typography variant="h6">Product Name : </Typography>
                             <TextField
                             fullWidth
+                            size="small"
                             variant="outlined"
                             className=""
                             type="text"
@@ -142,7 +143,7 @@ class Addproduct extends React.Component{
                             </select>
                         </div>
                     {subcatagories.length!==0 && 
-                    <div>
+                        <div>
                             <Typography variant="h6">Choose a sub catagory : </Typography>
                             <select id="subcatagory" name="subcatagoryId" value={subcatagoryId} onChange={this.changeHandler}>
                                 <option value="">Select one</option>
@@ -157,11 +158,11 @@ class Addproduct extends React.Component{
                                 {subcattwo.map(item=><option value={item._id}>{item.Subcatagory_twoName}</option>)}
                             </select>
                         </div>}
-                        
                         <div>
                             <Typography variant="h6">Quantity : </Typography>
                             <TextField
                             fullWidth
+                            size="small"
                             variant="outlined"
                             className=""
                             type="number"
@@ -176,6 +177,7 @@ class Addproduct extends React.Component{
                             <Typography variant="h6">Price : </Typography>
                             <TextField
                             fullWidth
+                            size="small"
                             variant="outlined"
                             className=""
                             type="number"
@@ -208,16 +210,13 @@ class Addproduct extends React.Component{
                             name="ProductImg"
                             onChange={this.onChangeFile}
                             />
-                            
                         </div>
-                        
                         <Button 
                         variant="contained" 
                         color="primary" 
                         type="submit"
                         >
                         Add product</Button>
-                        
                     </form>
                     <div className="imgPreview"><img src={imgpreview} alt=""/></div>
                 </Paper>
