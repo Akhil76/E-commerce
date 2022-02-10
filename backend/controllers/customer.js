@@ -54,9 +54,9 @@ const customerRegistration = asynchandler(async(req,res)=>{
             });
             
             }
-    }catch{
+    }catch(error){
            res.status(200).json({
-               message: "Server error occurred!"
+               message:"Server error occurred!"
            });
        }
 });

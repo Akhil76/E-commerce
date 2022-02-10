@@ -22,9 +22,11 @@ const authenticated = require('../middlewares/authenticated');
 
 
 // http://localhost:3001/admin/+
-router.post('/addcatagory',authenticated, addcatagory);
+//-----------Adding Category------------------------------------------------
+router.post('/addcatagory',authenticated,addcatagory);
 router.post('/addsubcatagory',authenticated,addsubcatagory);
 router.post('/addsubcatagory_two',authenticated,addsubcatagory_two);
+//--------------------------------------------------------------------------
 router.put('/editmaincatagory/:id',authenticated,editMainCategory);
 router.put('/editsubcatagory/:id',authenticated,editSubCategory);
 router.put('/editchildcatagory/:id',authenticated,editChildCategory);

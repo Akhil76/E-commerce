@@ -8,7 +8,8 @@ import{ ADD_CHILD_CATEGORY,
         DELETE_SUB_CAT,
         EDIT_CHILD_CATAGORY, 
         DELETE_CHILD_CAT,
-        FETCH_CATAGORY } from '../action_type/constants';
+        FETCH_CATAGORY, 
+        ERROR} from '../action_type/constants';
 
 export const fetch_catagory = ()=>(dispatch)=>{
     axios.get('/navcatagories')
@@ -16,7 +17,7 @@ export const fetch_catagory = ()=>(dispatch)=>{
         dispatch({
             type:FETCH_CATAGORY,
             payload: {
-                catagory: response.data
+                catagory:response.data
             }
         })
     })
@@ -31,13 +32,19 @@ export const addcatagory =(newcatagory)=>(dispatch)=>{
         dispatch(
             {type:ADD_MAIN_CATAGORY,
                 payload:{
-                    newcatagory:response.data
+                    message:response.data,
+                    error:{}
                 }
             }
         )
     })
     .catch(error=>{
-        console.log(error)
+        dispatch({
+            type:ERROR,
+            payload:{
+                error:error.response.data
+            }
+        })
     })
 }
 

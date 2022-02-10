@@ -7,10 +7,15 @@ import { ADD_CHILD_CATEGORY,
     DELETE_SUB_CAT,
     EDIT_CHILD_CATAGORY, 
     DELETE_CHILD_CAT,
-    FETCH_CATAGORY } from "../action_type/constants";
+    FETCH_CATAGORY ,
+    ERROR
+} from "../action_type/constants";
+
 
 const initialstate = {
-    items:[]
+    items:[],
+    error:{},
+    message:{}
 }
 
 const catagoryReducer = (state=initialstate,action)=>{
@@ -18,12 +23,12 @@ const catagoryReducer = (state=initialstate,action)=>{
             case FETCH_CATAGORY:
                 return{
                     ...state,
-                    items: action.payload.catagory
+                    items:action.payload.catagory
                 }
             case ADD_MAIN_CATAGORY:
                 return{
                     ...state,
-                    newcatagory: action.payload
+                    message: action.payload.message,
                 }
             case ADD_SUB_CATEGORY:
                 return{
@@ -76,7 +81,12 @@ const catagoryReducer = (state=initialstate,action)=>{
                     items:state.items.map((e)=>
                     e._id===action.payload.id?action.payload:e
                     ) 
-                }      
+                }
+            case ERROR:
+                return{
+                    ...state,
+                    error:action.payload.error
+                }          
             default :
                 return state    
         }

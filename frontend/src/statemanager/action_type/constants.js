@@ -1,4 +1,3 @@
-export const SUCCESS_MSG = 'SUCCESS_MSG';
 export const FETCH_CATAGORY = 'FETCH_CATAGORY';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT';
@@ -47,3 +46,5 @@ export const EDIT_SLIDER = 'EDIT_SLIDER';
 export const DEL_SLIDER = 'DEL_SLIDER';
 //----Slider in client part---------------------------------
 export const DISPLAY_SLIDER_CLIENT = 'DISPLAY_SLIDER_CLIENT';
+
+export const ERROR = "ERROR";
