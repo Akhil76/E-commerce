@@ -54,7 +54,7 @@ function Card(props){
        <Grid className={classes.root} item xs={12} sm={6} md={3}>
           <NavLink to={"/productdetails/"+props.id}>
             <div className={classes.img}>
-                <img alt="ProductImg" src={"../uploads/"+props.Img}/> 
+                <img alt="ProductImg" src={"http://localhost:3001/image/"+props.Img}/> 
             </div>
           </NavLink>
           <div className={classes.cardDescription}>

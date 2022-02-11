@@ -63,7 +63,7 @@ function SliderSetting(){
                         <p>Title:{item.Title}</p>
                         <p>Link:{item.Link}</p>
                         <div className={classes.Img}>
-                            <img src={"../uploads/"+item.Image}/>
+                            <img src={"http://localhost:3001/image/"+item.Image}/>
                         </div>    
                         <Toolbar>
                             <Button

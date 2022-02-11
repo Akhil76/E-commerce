@@ -17,9 +17,6 @@ function Cart() {
     const loading = useSelector((state) => state.cart.loading);
     const [customerid, setCustomerid] = useState(customer.Id);
 
-
-
-
     useEffect(() =>{
         dispatch(cartItem(customerid));
     }, []);

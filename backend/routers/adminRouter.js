@@ -18,6 +18,7 @@ const {addingslider,displayslider,editslider,delslider} = require('../controller
 const {allcustomer} = require('../controllers/customer');
 const upload = require('../middlewares/upload');
 const authenticated = require('../middlewares/authenticated');
+const imageReader = require('../controllers/imageReader');
 
 
 
@@ -59,6 +60,7 @@ router.put('/editslider/:id',authenticated,upload.single('Image'),editslider);
 router.delete('/delslider/:id',authenticated,delslider);
 //------------------------------------------------------------------
 router.post('/login',login);
-
+//-----------imageReader----------------------------------------
+router.get('/image/:name',imageReader);
 
 module.exports = router;

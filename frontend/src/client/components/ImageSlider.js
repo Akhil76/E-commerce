@@ -22,7 +22,7 @@ function ImageSlider(){
             {
             sliders.map((item)=>(
             <div>
-                <img src={"../uploads/"+item.Image} style={{height:"250px"}}/>
+                <img src={"http://localhost:3001/image/"+item.Image} style={{height:"250px"}}/>
                 <NavLink to={item.Link}><p className="legend" style={{background:"center"}}>{item.Title}</p></NavLink>
             </div>
                 ))

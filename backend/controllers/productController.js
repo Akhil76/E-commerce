@@ -62,7 +62,7 @@ const editproduct = asynchandler(async(req,res)=>{
             {$set:updatedProduct}
         );
          //--------replacing img file------------------
-         const path = '../frontend/public/uploads/';
+         const path ='./uploadedfiles/';;
          const fileNameWithPath = path+editedProduct.ProductImg;
          if(req.file){ //If there is no img file, fs.unlink will not work
              fs.unlink(fileNameWithPath, (err) => {
@@ -88,7 +88,7 @@ const delproduct = asynchandler(async(req,res)=>{
         const deletedProduct = await ProductModel.findByIdAndRemove(id) .exec();
        
         //--------Deleting img file------------------
-        const path = '../frontend/public/uploads/';
+        const path = './uploadedfiles/';
         const fileNameWithPath = path+deletedProduct.ProductImg;
         if(deletedProduct.ProductImg){ //If there is no img file, fs.unlink will not work
             fs.unlink(fileNameWithPath, (err) => {

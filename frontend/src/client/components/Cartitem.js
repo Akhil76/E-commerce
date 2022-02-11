@@ -38,7 +38,7 @@ function Cartitem(props){
             <Paper>
                 <Toolbar>
                     <div className={classes.img}>
-                        <img alt="ProductImg" src={"../uploads/" + props.ProductImg} />
+                        <img alt="ProductImg" src={"http://localhost:3001/image/" + props.ProductImg} />
                     </div>
                     
                     <Typography style={{ width: "200px" }}>{props.ProductName}</Typography>

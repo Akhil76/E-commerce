@@ -38,7 +38,7 @@ function DetailComponent(props) {
             <Typography variant="h6">Product Details</Typography>
             <div>
                 <div className={classes.img}>
-                    <img alt="ProductImg" src={"../uploads/" + props.ProductImg} />
+                    <img alt="ProductImg" src={"http://localhost:3001/image/" + props.ProductImg} />
                 </div>
                 <Typography variant="h5" >Product Name:{props.ProductName}</Typography>
                 <Typography variant="h6" >Price:{props.Price}</Typography>

@@ -9,9 +9,9 @@ const {customerRegistration,
     delcartItem} = require('../controllers/customer');
 const SearchProduct = require('../controllers/SearchProduct');
 const {displayslider} = require('../controllers/ImgSlider');
+const imageReader = require('../controllers/imageReader');
 
-
-
+router.get('/image/:name',imageReader);
 
 router.get('/product/:productId',productbyChildCat);
 router.get('/navcatagories',displaycatagory);

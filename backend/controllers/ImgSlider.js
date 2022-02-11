@@ -24,20 +24,6 @@ const addingslider = asynchandler(async(req,res)=>{
 const displayslider = asynchandler(async(req,res)=>{
     try{
         const data = await ImgSliderModel.find();
-        // .exec((err,data)=>{
-        //     if(err){
-        //         res.status(500).json({
-        //             err: "There is a server side error!"
-        //         });
-        //     }else{
-        //         res.send(data)
-        //     }
-        // })  
-
-        // res.status(200).json({
-        //     result: data,
-        //     message: "Success"
-        // });
         res.send(data);
     }catch{
         res.status(200).json({
@@ -68,7 +54,7 @@ const editslider = asynchandler(async(req,res)=>{
         );
          //--------replacing img file------------------
        
-         const path = '../frontend/public/uploads/';
+         const path = './uploadedfiles/';
          const fileNameWithPath = path+editedSlider.Image;
          if(req.file){ //If there is no img file, fs.unlink will not work
              fs.unlink(fileNameWithPath, (err) => {
@@ -93,7 +79,7 @@ const delslider = asynchandler(async(req,res)=>{
         const deletedslider = await ImgSliderModel.findByIdAndRemove(id) .exec();
        
         //--------Deleting img file------------------
-        const path = '../frontend/public/uploads/';
+        const path = './uploadedfiles/';
         const fileNameWithPath = path+deletedslider.Image;
         if(deletedslider.Image){ //If there is no img file, fs.unlink will not work
             fs.unlink(fileNameWithPath, (err) => {
