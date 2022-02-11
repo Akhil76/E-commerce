@@ -8,38 +8,15 @@ const addcatagory = asynchandler(async(req,res)=>{
    
    try{
     const CatagoryName = req.body.CatagoryName;
-// //----------for single item validation---------- 
-//     const validate = Catagroy =>{
-//         let error = {}
-//         if(!Catagroy.CatagoryName){
-//             error.CatagoryName = 'Please,enter your expected category name.'
-//         }
-//         return{
-//             error,
-//             isValid:Object.keys(error).length==0
-//         }
-//     }
-//   //--------------------------------------------  
-//     if(!validate.isValid){
-//         res.status(400).json(validate.error);
-//     }else{
-//         catagoryName = await CatagoryModel.findOne({CatagoryName});
-//         if(catagoryName){
-//            return res.status(400).json({
-//                 CatagoryName:"This name already exists!"
-//             })
-//         }
-//     }
-    
     
     if(!CatagoryName){
         res.status(400).json({
             error:"Please,enter category name."
         })
     }else{
-        iSExistName = await CatagoryModel.findOne({CatagoryName});
+       var iSExistName = await CatagoryModel.findOne({CatagoryName});
         if(iSExistName){
-            res.status(400).json({
+           return res.status(400).json({
                 error:"This name already exists!"
             });
         }

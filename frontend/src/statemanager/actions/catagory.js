@@ -33,7 +33,7 @@ export const addcatagory =(newcatagory)=>(dispatch)=>{
             {type:ADD_MAIN_CATAGORY,
                 payload:{
                     message:response.data,
-                    error:{}
+                    
                 }
             }
         )

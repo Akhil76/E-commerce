@@ -21,7 +21,7 @@ const customer_Reducer = (state=initialState, action) => {
             return {
                 ...state,
                 message:action.payload.message,
-               
+                error:{}
             }
         case CUSTOMER_ERROR:
             return{

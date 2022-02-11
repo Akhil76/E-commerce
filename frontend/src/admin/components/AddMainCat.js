@@ -13,14 +13,9 @@ const useStyles = makeStyles((theme)=>({
 		background:"#69f0ae"
 	},
     form:{
-        marginLeft:"10px"
+        margin:"10px",
+        
     },
-    inputF:{
-        padding: "10px",
-        width: "auto%",
-        borderRadius: "5px",
-        margin: "10px 0px"
-    }
 }))
 
 
@@ -29,49 +24,49 @@ function AddMainCat(){
     const dispatch = useDispatch();
     const error = useSelector((state)=>state.catagory.error);
     const message = useSelector((state)=>state.catagory.message);
-    useEffect(()=>{
-        addcatagory();  
-    },[])
+   
     const[newcatagory,setNewcatagory] = useState({
         CatagoryName:""
     });
     
-    const changeHandler =(e)=>{
-        setNewcatagory({
-          [e.target.name] : e.target.value
-        })
-    };
+    
+
+    // const changeHandler =(e)=>{
+    //     setNewcatagory({
+    //       [e.target.name] : e.target.value
+    //     })
+    // };
 
     const submithandler=(e)=>{
         e.preventDefault();
         dispatch(addcatagory(newcatagory));
         setNewcatagory({
             CatagoryName:""
-        })
+        });
     }
 
     return(
         <Grid className={classes.root} xs={12} sm={12} md={6}>
-            <Typography>{error.error}{message.message}</Typography>
+            <Typography>{message.message}</Typography>
 			<Typography className={classes.Title} variant="h6">Add main category</Typography>
             <form className={classes.form} onSubmit={submithandler}>
-                <input
+                {/* <input
                 className={classes.inputF} 
                 placeholder="Add Category"
                 Name="CatagoryName"
                 value={newcatagory.CatagoryName}
                 onChange={changeHandler}
-                />
-                {/* <TextField
+                /> */}
+                <TextField
                 error={error.error}
                 helperText={error.error}
                 size="small"
                 variant="outlined"
-                placeholder="Add Category"
+                label="Add main Category"
                 Name="CatagoryName"
                 value={newcatagory.CatagoryName}
-                onChange={changeHandler}
-                /> */}
+                onChange={(e)=>setNewcatagory({...newcatagory,CatagoryName:e.target.value})}
+                />
                 <br/>
                 <Button  
                 type="submit" 

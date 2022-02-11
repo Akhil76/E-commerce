@@ -29,11 +29,13 @@ const catagoryReducer = (state=initialstate,action)=>{
                 return{
                     ...state,
                     message: action.payload.message,
+                    error:{}
                 }
             case ADD_SUB_CATEGORY:
                 return{
                     ...state,
-                    newSubcatagory:action.payload
+                    newSubcatagory:action.payload,
+                    
                 }
             case ADD_CHILD_CATEGORY:
                 return{

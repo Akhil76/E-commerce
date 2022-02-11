@@ -10,8 +10,7 @@ export const customerRegistration=(customerInfo,history)=>(dispatch)=>{
         dispatch({
             type:CUSTOMER_SIGNUP,
             payload:{
-                message:response.data,
-                error:{}  
+                message:response.data  
             }
         });
         history.push('/signin');
