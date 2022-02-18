@@ -29,7 +29,7 @@ function DashboardCard(props){
     const classes = useStyles();
     return(
         <Grid  item xs={12} sm={6} md={3}>
-            <NavLink className={classes.link} to="#">
+            <NavLink className={classes.link} to={""+props.link}>
                 <div className={classes.root}>
                     <Typography className={classes.title} variant="h6">{props.title}</Typography>
                     <div className={classes.number}>

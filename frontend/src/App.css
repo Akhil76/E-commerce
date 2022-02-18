@@ -109,7 +109,7 @@
 		flex-direction:column;
 		background:var(--bgColor);
 		margin-top:12px;
-		min-width:230px;
+		min-width:250px;
 		border-top:1px solid white;
 		height:100vh;
 		display:none;

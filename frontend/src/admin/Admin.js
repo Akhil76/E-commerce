@@ -57,7 +57,7 @@ function Admin() {
             <PrivateRoute exact path="/admin/setting" component={Setting}/>
             <PrivateRoute exact path="/admin/addcategory" component={AddCategory}/>
             <PrivateRoute exact path="/admin/managecat" component={ManageCat}/>
-            <PrivateRoute exact path="/admin" component={Home}/>
+            <PrivateRoute exact path="/admin/" component={Home}/>
           </Switch>
         </main>
       </div>

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: "hidden"
     },
     img:{
-        display:"inline-flex",
+        display:"flex",
         height:"170px",
         width:"170px",
     },

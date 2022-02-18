@@ -4,7 +4,6 @@ import ProductTable from '../components/ProductTable';
 import DashboardCard from '../components/DashboardCard';
 import Customer from '../components/Customer';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { editProductDisplay} from '../../statemanager/actions/product';
 import {allcustomer} from '../../statemanager/actions/customer';
@@ -24,15 +23,15 @@ function Home(){
 		<Router>
 			<div>
 				<Grid style={{paddingBottom:"30px"}} direction="row" justifyContent="flex-start" container>
-					<DashboardCard title="All products" number={products.length}/>
+					<DashboardCard title="All products" number={products.length} link="/admin"/>
+					<DashboardCard title="Customers"  number={customers.length} link="/admin/customer"/>
 					<DashboardCard title="Orders"  number="77"/>
 					<DashboardCard title="Pendings"  number="17"/>
-					<DashboardCard title="Customers"  number={customers.length}/>
 				</Grid>
 				<Grid style={{paddingBottom:"30px"}} direction="row" justifyContent="flex-start" container>
 					<Switch>
-						<Route exact path="/admin/customer" component={Customer}/>
-						<Route exact path="/admin" component={ProductTable}/>
+						<Route path="/admin/customer" component={Customer}/>
+						<Route path="/admin" component={ProductTable}/>
 					</Switch>
 				</Grid>
 			</div>
