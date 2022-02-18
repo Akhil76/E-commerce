@@ -30,7 +30,7 @@ class Navigation extends React.Component{
                
             <div className="nav" id="nav">
                 <input style={{display:"none"}} type="checkbox" className="check_box" id="check_box"/>
-                <label style={{color:"white"}} className="menuBtn"for="check_box">
+                <label style={{color:"white",marginTop:"10px"}} className="menuBtn"for="check_box">
                     <i><MenuTwoToneIcon/></i>
                 </label>
                 <ul>

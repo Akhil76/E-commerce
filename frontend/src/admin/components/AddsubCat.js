@@ -1,6 +1,6 @@
 import React,{ useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core';
-import {Grid, TextField, Typography,Button} from '@material-ui/core';
+import {Grid, Typography,Button} from '@material-ui/core';
 import {useDispatch,useSelector} from 'react-redux';
 import {mainCatagory} from "../../statemanager/actions/catagorySelect";
 import {addsubcatagory} from '../../statemanager/actions/catagory';
@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme)=>({
         margin: "10px 0px"
     },
     select:{
-        width:"100px"
+        width:"100px",
+        height:"30px"
     }
 }))
 
@@ -75,7 +76,12 @@ function AddsubCat(){
                 />
                 <div>
                     <label for="SubCatagory">Select a main category: </label>
-                    <select className={classes.select} Name="catagoryId" value={newSubcatagory.catagoryId} onChange={(e)=>setNewSubcatagory({...newSubcatagory,catagoryId:e.target.value})}>
+                    <select 
+                    className={classes.select} 
+                    Name="catagoryId" 
+                    value={newSubcatagory.catagoryId} 
+                    onChange={(e)=>setNewSubcatagory({...newSubcatagory,catagoryId:e.target.value})}
+                    >
                         <option value="">Select one</option>
                         {Maincatagories.map((mainCat)=>(<option value={mainCat._id}>{mainCat.CatagoryName}</option>))}
                     </select>

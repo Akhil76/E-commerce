@@ -8,7 +8,7 @@
 
 /*------------------DropDwon Navigation-------------------*/
 :root{
-	--bgColor:green;
+	--bgColor:#3F51B5;
 	--fontColor:white;
 }
 
@@ -44,8 +44,8 @@
 	margin-left: -10px;
 }
 .nav ul li a:hover{
-	background:var(--fontColor);
-	color:red;
+	
+	color:yellow;
 }
 .dropdown-1{
 	display:none;
@@ -108,7 +108,7 @@
 	.nav ul{
 		flex-direction:column;
 		background:var(--bgColor);
-		margin-top:22px;
+		margin-top:12px;
 		min-width:230px;
 		border-top:1px solid white;
 		height:100vh;

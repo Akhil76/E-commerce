@@ -1,4 +1,4 @@
-import React,{ useEffect, useState} from 'react';
+import React,{ useState} from 'react';
 import { makeStyles } from '@material-ui/core';
 import {Grid, TextField, Typography,Button} from '@material-ui/core';
 import {useDispatch,useSelector} from 'react-redux';
@@ -13,9 +13,11 @@ const useStyles = makeStyles((theme)=>({
 		background:"#69f0ae"
 	},
     form:{
-        margin:"10px",
-        
+        margin:"10px",  
     },
+    inputF:{
+        marginBottom:"10px",
+    }
 }))
 
 
@@ -29,8 +31,6 @@ function AddMainCat(){
         CatagoryName:""
     });
     
-    
-
     // const changeHandler =(e)=>{
     //     setNewcatagory({
     //       [e.target.name] : e.target.value
@@ -47,8 +47,8 @@ function AddMainCat(){
 
     return(
         <Grid className={classes.root} xs={12} sm={12} md={6}>
-            <Typography>{message.message}</Typography>
 			<Typography className={classes.Title} variant="h6">Add main category</Typography>
+            <Typography>{message.message}</Typography>
             <form className={classes.form} onSubmit={submithandler}>
                 {/* <input
                 className={classes.inputF} 
@@ -58,11 +58,13 @@ function AddMainCat(){
                 onChange={changeHandler}
                 /> */}
                 <TextField
+                fullWidth
+                className={classes.inputF} 
                 error={error.error}
                 helperText={error.error}
                 size="small"
                 variant="outlined"
-                label="Add main Category"
+                placeholder="Enter a main category name"
                 Name="CatagoryName"
                 value={newcatagory.CatagoryName}
                 onChange={(e)=>setNewcatagory({...newcatagory,CatagoryName:e.target.value})}

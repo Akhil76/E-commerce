@@ -143,19 +143,12 @@ const editChildCategory = asynchandler(async(req,res)=>{
 const deleteMainCategory = asynchandler(async(req,res)=>{
     try{
         const id = req.params.id;
-        const MainCat = await CatagoryModel.findByIdAndRemove(id).exec();
-        //const Subcatagory = mainCat.Subcatagory;
-        //const SubCat = await SubcatagoryModel.find({Catagory:id})
-       
-        //const DeletedSubCat = await SubcatagoryModel.findByIdAndRemove({_id:SubCat._id}).exec();
-        const subcatId = MainCat.Subcatagory.map(id=>id.ObjectId);
-        console.log(subcatId);
-        //await Subcatagory_twoModel.deleteMany({_id:deletedSubCat.Subcatagory_two}).exec();
-       
+        const MainCatDelResult = await CatagoryModel.findByIdAndRemove(id);
+        const SubCatDelResult = await SubcatagoryModel.deleteMany({Catagory:id});
         res.send('Category is successfully deleted.');
-    }catch{
+    }catch(error){
         res.status(200).json({
-            message: "Server error occurred and deleting failed!"
+            message:"Server error occurred and deleting failed!"
         });
     }
 });
@@ -164,7 +157,7 @@ const deleteMainCategory = asynchandler(async(req,res)=>{
 const deleteSubCategory = asynchandler(async(req,res)=>{
     try{
         const id = req.params.id;
-        const SubCat = await SubcatagoryModel.findByIdAndRemove(id).exec();
+        const SubCat = await SubcatagoryModel.findByIdAndRemove(id);
         res.send('Sub category is successfully deleted.');
         
     }catch{
