@@ -49,7 +49,11 @@ export default function ProductTable() {
               <TableCell component="th" scope="row">
                 {product.ProductName}
               </TableCell>
-              <TableCell align="left">{product.ProductImg}</TableCell>
+              <TableCell align="left">
+                <div style={{display:"inline-flex",width:"30px", height:"40px"}}>
+                  <img src={"http://localhost:3001/image/"+product.ProductImg}/>
+                </div>
+              </TableCell>
               <TableCell align="left">{product.Price}</TableCell>
               <TableCell align="center">{product.Quantity}</TableCell>
               <TableCell 

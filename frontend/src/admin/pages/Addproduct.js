@@ -119,6 +119,7 @@ class Addproduct extends React.Component {
                         style={{ background: "#82b1ff", padding: "10px" }}
                         align="center"
                     >Add Product</Typography>
+                    <p>{ProductName}</p>
                     <form onSubmit={this.submitHandler} >
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <div style={{ width: "48%" }}>
@@ -132,7 +133,19 @@ class Addproduct extends React.Component {
                                     placeholder="Product Name"
                                     Name="ProductName"
                                     id="ProductName"
-                                    value={ProductName}
+                                    value={this.ProductName}
+                                    onChange={this.changeHandler}
+                                />
+                                <TextField
+                                    fullWidth
+                                    size="small"
+                                    variant="outlined"
+                                    className=""
+                                    type="text"
+                                    placeholder="Product Name"
+                                    Name="ProductName"
+                                    id="ProductName"
+                                    value={this.ProductName}
                                     onChange={this.changeHandler}
                                 />
                             </div>
@@ -147,7 +160,7 @@ class Addproduct extends React.Component {
                                     placeholder="0"
                                     Name="Quantity"
                                     id="Quantity"
-                                    value={Quantity}
+                                    value={this.Quantity}
                                     onChange={this.changeHandler}
                                 />
                             </div>
@@ -159,7 +172,7 @@ class Addproduct extends React.Component {
                                 style={{height:"30px"}}
                                 id="catagory"
                                 name="catagoryId"
-                                value={catagoryId}
+                                value={this.catagoryId}
                                 onChange={this.changeHandler}
                             >
                                 <option value="">Select one</option>
@@ -173,7 +186,7 @@ class Addproduct extends React.Component {
                                 style={{height:"30px"}} 
                                 id="subcatagory" 
                                 name="subcatagoryId" 
-                                value={subcatagoryId} 
+                                value={this.subcatagoryId} 
                                 onChange={this.changeHandler}
                                 >
                                     <option value="">Select one</option>
@@ -187,7 +200,7 @@ class Addproduct extends React.Component {
                                 style={{height:"30px"}}
                                 id="subcatagorytwo" 
                                 name="subcatagorytwoId" 
-                                value={subcatagorytwoId} 
+                                value={this.subcatagorytwoId} 
                                 onChange={this.changeHandler}
                                 >
                                     <option value="">Select one</option>
@@ -206,7 +219,7 @@ class Addproduct extends React.Component {
                                 placeholder="0"
                                 Name="Price"
                                 id="Price"
-                                value={Price}
+                                value={this.Price}
                                 onChange={this.changeHandler}
                             />
                         </div>
@@ -219,7 +232,7 @@ class Addproduct extends React.Component {
                                 placeholder="Write a detailed description of the product."
                                 Name="Description"
                                 id="Description"
-                                value={Description}
+                                value={this.Description}
                                 onChange={this.changeHandler}
                             />
                         </div>

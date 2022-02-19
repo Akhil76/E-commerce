@@ -1,5 +1,6 @@
 const asynchandler = require('express-async-handler');
 const ProductModel = require('../models/ProductModel');
+const ProductValidator = require('../validator/ProductValidator');
 const fs = require('fs');
 
 
@@ -15,7 +16,18 @@ const addProduct = asynchandler(async(req,res)=>{
     //-----For uploading img------------------------------------
     const ProductImg = req.file.filename;
 
-    const addProduct = new ProductModel({
+    const validate = ProductValidator({
+        ProductName,
+        Description,
+        Quantity,
+        Price, 
+        Catagory,
+    });
+
+    if(!validate.isValid){
+        res.status(400).json(validate.error)
+    }else{
+        const addProduct = new ProductModel({
             ProductName,
             Description,
             Quantity,
@@ -24,14 +36,19 @@ const addProduct = asynchandler(async(req,res)=>{
             Catagory,
             Subcatagory,
             Subcatagory_two,
-        
-   })
-       await addProduct.save();
-       res.send("Product is inserted.");
-   }catch{
-    res.status(200).json({
-        message:"Server error occurred and product adding failed!"
-    });
+        })
+   
+       const result = await addProduct.save();
+       res.status(200).json({
+           result,
+           message:"Product is added successfully."
+       });
+    }
+    
+   }catch(error){ 
+        res.status(200).json({
+            message:"Server error occurred and product adding failed!"
+        });
    }
 });
 
