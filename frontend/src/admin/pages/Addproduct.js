@@ -246,9 +246,7 @@ function Addproduct(){
                         >
                             Add product</Button>
                     </form>
-                    
                 </Paper>
-
             </div>
         )
 
