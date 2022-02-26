@@ -11,7 +11,6 @@ function Addproduct(){
     const subcatagories = useSelector((state)=>state.subcatagorySelect);
     const subcattwo = useSelector((state)=>state.subcattwoSelect);
 
-    
     const [ productData,setProductData] = useState({
         ProductName: "",
         catagoryId: "",
@@ -23,11 +22,15 @@ function Addproduct(){
         ProductImg: "",
         imgpreview: "",
     });
+
+
     useEffect(()=>{
         dispatch(mainCatagory());
         dispatch(subcatagory(productData.catagoryId));
         dispatch(subcatagorytwo(productData.subcatagoryId));
     },[productData.catagoryId,productData.subcatagoryId]);
+
+    
 
     // changeHandler = event => {
     //     this.setState({
@@ -87,6 +90,24 @@ function Addproduct(){
 
 
     }
+
+    // componentDidMount() {
+    //     this.props.mainCatagory();
+
+    // }
+
+
+
+    // componentDidUpdate() {
+    //     if (this.state.catagoryId !== "") {
+    //         this.props.subcatagory(this.state.catagoryId);
+
+    //     };
+    //     if (this.state.subcatagoryId !== "") {
+    //         this.props.subcatagorytwo(this.state.subcatagoryId);
+    //     }
+
+    // }
 
         return (
             <div>
@@ -226,7 +247,9 @@ function Addproduct(){
                         >
                             Add product</Button>
                     </form>
+                    
                 </Paper>
+
             </div>
         )
 
