@@ -29,8 +29,6 @@ function Addproduct(){
         dispatch(subcatagorytwo(productData.subcatagoryId));
     },[productData.catagoryId,productData.subcatagoryId]);
 
-    
-
     // changeHandler = event => {
     //     this.setState({
     //         [event.target.name]: event.target.value
@@ -89,24 +87,6 @@ function Addproduct(){
 
 
     }
-
-    // componentDidMount() {
-    //     this.props.mainCatagory();
-
-    // }
-
-
-
-    // componentDidUpdate() {
-    //     if (this.state.catagoryId !== "") {
-    //         this.props.subcatagory(this.state.catagoryId);
-
-    //     };
-    //     if (this.state.subcatagoryId !== "") {
-    //         this.props.subcatagorytwo(this.state.subcatagoryId);
-    //     }
-
-    // }
 
         return (
             <div>
